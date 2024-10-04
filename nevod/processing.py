@@ -1,20 +1,54 @@
 from tqdm import tqdm
 import math
 from statistics import mean, median
+from config import (data_decor, data_events, data_e, time_window_collect, delta_time, BATCH, RUN,
+                    total_runs_collect, run_collect, run_events,merge_collections1, merge_collections2,
+                    merge_run_events)
 
 
-def process_coincidences(db, delta_time, coincidences_collect_name, batch_size):
+def count_unique_runs(db):
     """
-    Функция для обработки совпадений между коллекциями 'nevod_decor' и 'nevod_eas' и сохранения результатов в новую коллекцию.
+    Функция для подсчета уникальных значений `run` в коллекции и количества документов, им соответствующих.
+
+    Параметры:
+        db: объект базы данных MongoDB.
+        collection_name (str): имя коллекции, в которой производится поиск.
+
+    Возвращает:
+        Словарь, где ключи — уникальные значения `run`, а значения — количество документов.
+    """
+
+    global data_decor
+    print(f'Подсчет уникальных значений `run` в коллекции {data_decor}:')
+    collection = db[data_decor]
+
+    pipeline = [
+        {"$group": {"_id": "$run", "count": {"$sum": 1}}}
+    ]
+
+    results = collection.aggregate(pipeline)
+    for result in results:
+        run_value = result["_id"]
+        count = result["count"]
+        print(f'run = {run_value}: {count} документов')
+
+
+def process_coincidences(db):
+    """
+    Функция для обработки совпадений между коллекциями data_decor и 'nevod_eas' и сохранения результатов в новую коллекцию.
 
     Параметры:
     - db: объект базы данных MongoDB.
     - delta_time (int): временной интервал для поиска совпадений (в наносекундах).
-    - batch_size (int): размер пакета для обработки данных.
-    - coincidences_collect_name (str): имя коллекции для сохранения результатов.
+    - BATCH (int): размер пакета для обработки данных.
+    - time_window_collect (str): имя коллекции для сохранения результатов.
     """
-    db['nevod_decor'].create_index('event_time_ns')
-    db['nevod_eas'].create_index('eas_event_time_ns')
+    global data_decor, data_events, time_window_collect, delta_time, BATCH
+    total_events = 0
+    print(f'Отбор событий во врменном окне {delta_time} нс:')
+
+    db[data_decor].create_index('event_time_ns')
+    db[data_events].create_index('eas_event_time_ns')
 
     pipeline = [
         {
@@ -26,7 +60,7 @@ def process_coincidences(db, delta_time, coincidences_collect_name, batch_size):
             '$count': 'total_count'
         }
     ]
-    total_count_result = list(db['nevod_decor'].aggregate(pipeline))
+    total_count_result = list(db[data_decor].aggregate(pipeline))
     total_count = total_count_result[0]['total_count'] if total_count_result else 0
 
     pipeline = [
@@ -41,9 +75,9 @@ def process_coincidences(db, delta_time, coincidences_collect_name, batch_size):
             }
         }
     ]
-    unique_event_time_ns_values = [doc['_id'] for doc in db['nevod_decor'].aggregate(pipeline)]
+    unique_event_time_ns_values = [doc['_id'] for doc in db[data_decor].aggregate(pipeline)]
 
-    batches = [unique_event_time_ns_values[i:i + batch_size] for i in range(0, len(unique_event_time_ns_values), batch_size)]
+    batches = [unique_event_time_ns_values[i:i + BATCH] for i in range(0, len(unique_event_time_ns_values), BATCH)]
 
     with tqdm(total=total_count, desc='Обработка пакетов') as pbar:
         for batch in batches:
@@ -61,7 +95,7 @@ def process_coincidences(db, delta_time, coincidences_collect_name, batch_size):
                 },
                 {
                     '$lookup': {
-                        'from': 'nevod_eas',
+                        'from': data_events,
                         'let': {
                             'start_range': '$start_range',
                             'end_range': '$end_range'
@@ -90,152 +124,209 @@ def process_coincidences(db, delta_time, coincidences_collect_name, batch_size):
                 {
                     '$project': {
                         '_id': 0,
-                        'nevod_decor_doc': '$$ROOT',
-                        'nevod_eas_doc': '$event_matches'
+                        'data_decor_doc': '$$ROOT',
+                        'data_events_doc': '$event_matches'
                     }
                 }
             ]
 
-            cursor = db['nevod_decor'].aggregate(pipeline, allowDiskUse=True)
+            cursor = db[data_decor].aggregate(pipeline, allowDiskUse=True)
 
             results = list(cursor)
             if results:
-                db[coincidences_collect_name].insert_many(results)
+                db[time_window_collect].insert_many(results)
+                total_events += len(results)
+                pbar.set_description(f'Отобрано {total_events} события/й)')
 
             pbar.update(len(batch))
 
-def add_neas_list_to_coincidences(db, coincidences_collect_name, neas_db_name):
+def add_neas_list_to_coincidences(db):
     """
-    Функция для обновления документов в коллекции совпадений, добавляя поле 'neas_list' с полными документами из 'neas_db'.
+    Функция для обновления документов в коллекции совпадений, добавляя поле 'neas_list' с полными документами из 'data_e'.
 
     Параметры:
     - db: объект базы данных MongoDB.
-    - coincidences_collect_name (str): название коллекции совпадений для обновления.
-    - neas_db_name (str): название коллекции 'neas_db', содержащей документы для добавления.
+    - time_window_collect (str): название коллекции совпадений для обновления.
+    - data_e (str): название коллекции 'data_e', содержащей документы для добавления.
 
     Возвращает:
     - None
     """
-    db[neas_db_name].create_index('_id')
+    global time_window_collect, data_e
+    total_docs = 0
+    print(f'Добавление в {time_window_collect} файлы из {data_e}')
 
-    total_documents = db[coincidences_collect_name].count_documents({})
+    db[data_e].create_index('_id')
+
+    total_documents = db[time_window_collect].count_documents({})
 
     with tqdm(total=total_documents, desc='Обновление документов') as pbar:
-        cursor = db[coincidences_collect_name].find({}, no_cursor_timeout=True)
+        cursor = db[time_window_collect].find({}, no_cursor_timeout=True)
 
         for doc in cursor:
-            list_of_ids = doc['nevod_eas_doc'].get('list_of_ids', [])
+            list_of_ids = doc['data_events_doc'].get('list_of_ids', [])
 
             if list_of_ids:
-                neas_docs = list(db[neas_db_name].find({'_id': {'$in': list_of_ids}}))
+                data_e_docs = list(db[data_e].find({'_id': {'$in': list_of_ids}}))
 
-                neas_docs_ordered = []
-                neas_docs_dict = {neas_doc['_id']: neas_doc for neas_doc in neas_docs}
+                data_e_docs_ordered = []
+                data_e_docs_dict = {data_e_doc['_id']: data_e_doc for data_e_doc in data_e_docs}
 
                 for id in list_of_ids:
-                    neas_docs_ordered.append(neas_docs_dict.get(id))
+                    data_e_docs_ordered.append(data_e_docs_dict.get(id))
 
-                db[coincidences_collect_name].update_one(
+                db[time_window_collect].update_one(
                     {'_id': doc['_id']},
-                    {'$set': {'neas_list': neas_docs_ordered}}
+                    {'$set': {'data_e_list': data_e_docs_ordered}}
                 )
             else:
-                db[coincidences_collect_name].update_one(
+                db[time_window_collect].update_one(
                     {'_id': doc['_id']},
-                    {'$set': {'neas_list': []}}
+                    {'$set': {'data_e_list': []}}
                 )
+            total_docs += len(list_of_ids)
+            pbar.set_description(f'Обновлено: {total_docs} документов')
 
             pbar.update(1)
 
         cursor.close()
 
-def create_run_collection(db, source_collection_name, target_collection_name, nrun_value):
+def create_run_collection(db):
     """
     Функция для создания новой коллекции, содержащей документы из исходной коллекции с заданным значением поля 'NRUN'.
 
     Параметры:
     - db: объект базы данных MongoDB.
-    - source_collection_name (str): название исходной коллекции.
+    - time_window_collect (str): название исходной коллекции.
     - target_collection_name (str): название новой коллекции для сохранения результатов.
     - nrun_value (int): значение поля 'NRUN' для фильтрации документов.
 
     Возвращает:
     - None
     """
+    global RUN, total_runs_collect, run_collect, BATCH
+    print(f'Отбор событий run = {RUN}')
 
-    filter_query = {'NRUN': nrun_value}
+    filter_query = {'NRUN': RUN}
 
-    total_documents = db[source_collection_name].count_documents(filter_query)
+    total_documents = db[total_runs_collect].count_documents(filter_query)
 
     if total_documents > 0:
-        with tqdm(total=total_documents, desc=f"Копирование документов с NRUN={nrun_value}") as pbar:
-            batch_size = 1000
-            cursor = db[source_collection_name].find(filter_query).batch_size(batch_size)
+        with tqdm(total=total_documents, desc=f"Копирование документов с NRUN={RUN}") as pbar:
+            BATCH= 1000
+            cursor = db[total_runs_collect].find(filter_query).batch_size(BATCH)
 
             documents_batch = []
             for document in cursor:
                 documents_batch.append(document)
                 pbar.update(1)
 
-                if len(documents_batch) >= batch_size:
-                    db[target_collection_name].insert_many(documents_batch)
+                if len(documents_batch) >= BATCH:
+                    db[run_collect].insert_many(documents_batch)
                     documents_batch = []
 
             if documents_batch:
-                db[target_collection_name].insert_many(documents_batch)
+                db[run_collect].insert_many(documents_batch)
 
-        print(f"Документы с NRUN={nrun_value} из коллекции '{source_collection_name}' скопированы в новую коллекцию '{target_collection_name}'.")
+        total_documents = db[run_collect].count_documents({})
+        print(f"{total_documents} документа/ов с NRUN={RUN} из коллекции '{total_runs_collect}' скопированы в новую коллекцию '{run_collect}'.")
     else:
-        print(f"В коллекции '{source_collection_name}' не найдено документов с NRUN={nrun_value}.")
+        print(f"В коллекции '{total_runs_collect}' не найдено документов с NRUN={RUN}.")
 
-def create_events_collection(db, coincidences_collection_name, run_collection_name, events_collection_name):
+
+def check_run(db):
+    global RUN, time_window_collect
+    print(f'Проверка событий run = {RUN} в коллекции {time_window_collect}')
+    collection = db[time_window_collect]
+
+    result = collection.delete_many({"data_decor_doc.run": {"$ne": RUN}})
+    remaining_docs = collection.count_documents({})
+
+    print(f"Удалено документов: {result.deleted_count}")
+    print(f"Осталось документов: {remaining_docs}")
+
+
+def create_events_collection(db):
     """
     Функция для создания коллекции 'events', содержащей документы из 'coincidences_1000',
     где 'nevod_decor_doc.event_number' равен 'NEvent' из '812_run'.
     В каждый документ добавляется соответствующий документ из '812_run' под ключом '812_run_doc'.
     """
+    global time_window_collect, run_collect, run_events
+    print(f'Создание коллекции "{run_events}" совместных событий')
 
-    db[run_collection_name].create_index('NEvent')
-    total_documents = db[coincidences_collection_name].count_documents({})
+    db[run_collect].create_index('NEvent')
+    total_documents = db[time_window_collect].count_documents({})
 
     with tqdm(total=total_documents, desc='Создание коллекции events') as pbar:
-        cursor = db[coincidences_collection_name].find({}, no_cursor_timeout=True)
+        cursor = db[time_window_collect].find({}, no_cursor_timeout=True)
 
         events = []
         for doc in cursor:
-            event_number = doc['nevod_decor_doc'].get('event_number')
+            event_number = doc['data_decor_doc'].get('event_number')
             if event_number is not None:
-                run_doc = db[run_collection_name].find_one({'NEvent': event_number})
+                run_doc = db[run_collect].find_one({'NEvent': event_number})
                 if run_doc:
                     doc['812_run_doc'] = run_doc
                     events.append(doc)
                     if len(events) >= 1000:
-                        db[events_collection_name].insert_many(events)
+                        db[run_events].insert_many(events)
                         events = []
             pbar.update(1)
 
         if events:
-            db[events_collection_name].insert_many(events)
+            db[run_events].insert_many(events)
 
         cursor.close()
-    print(f"Коллекция '{events_collection_name}' создана.")
+    total_documents = db[run_events].count_documents({})
+    print(f"Коллекция '{run_events}' создана. Всего {total_documents} документа/ов")
+
+
+def merge_collections(db):
+    """
+    Функция для объединения двух коллекций и записи результатов в новую коллекцию.
+
+    Параметры:
+        db: объект базы данных MongoDB.
+        collection1 (str): имя первой коллекции.
+        collection2 (str): имя второй коллекции.
+        new_collection (str): имя новой коллекции, в которую будут записаны объединенные документы.
+    """
+    global merge_collections1, merge_collections2, merge_run_events
+
+    col1 = db[merge_collections1]
+    col2 = db[merge_collections2]
+    target_collection = db[merge_run_events]
+
+    documents_from_col1 = list(col1.find({}))
+    documents_from_col2 = list(col2.find({}))
+
+    combined_documents = documents_from_col1 + documents_from_col2
+
+    if combined_documents:
+        target_collection.insert_many(combined_documents)
+
+    total_docs = target_collection.count_documents({})
+
+    print(f"Всего документов в новой коллекции '{merge_run_events}': {total_docs}")
 
 def create_not_events_collection(db, coincidences_collection_name, run_collection_name, not_events_collection_name):
     """
     Функция для создания коллекции 'not_events', содержащей документы из '812_run',
     у которых 'NEvent' не совпадает с 'event_number' ни в одном документе из 'coincidences_1000'.
     """
+    global time_window_collect, run_collect, run_not_events
     event_numbers = set()
-    cursor = db[coincidences_collection_name].find({}, {'nevod_decor_doc.event_number': 1})
+    cursor = db[time_window_collect].find({}, {'data_decor_doc.event_number': 1})
     for doc in cursor:
-        event_number = doc['nevod_decor_doc'].get('event_number')
+        event_number = doc[data_decor].get('event_number')
         if event_number is not None:
             event_numbers.add(event_number)
     cursor.close()
 
-    total_documents = db[run_collection_name].count_documents({})
+    total_documents = db[run_collect].count_documents({})
     with tqdm(total=total_documents, desc='Создание коллекции not_events') as pbar:
-        cursor = db[run_collection_name].find({}, no_cursor_timeout=True)
+        cursor = db[run_collect].find({}, no_cursor_timeout=True)
         not_events = []
         for doc in cursor:
             n_event = doc.get('NEvent')
@@ -243,15 +334,15 @@ def create_not_events_collection(db, coincidences_collection_name, run_collectio
                 not_events.append(doc)
                 # Вставляем документы пакетами
                 if len(not_events) >= 1000:
-                    db[not_events_collection_name].insert_many(not_events)
+                    db[run_not_events].insert_many(not_events)
                     not_events = []
             pbar.update(1)
 
         if not_events:
-            db[not_events_collection_name].insert_many(not_events)
+            db[run_not_events].insert_many(not_events)
 
         cursor.close()
-    print(f"Коллекция '{not_events_collection_name}' создана.")
+    print(f"Коллекция '{run_not_events}' создана.")
 
 def calculate_events_direction(db, events_collection_name):
 
@@ -410,6 +501,3 @@ def get_theta_values(db, collection_name):
             pbar.update(1)
         cursor.close()
     return theta_values
-
-
-

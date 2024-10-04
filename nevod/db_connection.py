@@ -1,10 +1,10 @@
 import os
 from pymongo import MongoClient, errors
 
-class DatabaseConnection:
-    def __init__(self):
+class DatabaseConnection():
+    def __init__(self, database_name):
         self.mongo_url = os.environ.get('MONGO_URL', 'mongodb://localhost:27017')
-        self.db_name = os.environ.get('DB_NAME', 'test')
+        self.db_name = os.environ.get('DB_NAME', database_name)
         self.client = None
         self.db = None
         self.connect()
