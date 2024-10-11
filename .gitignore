@@ -1,0 +1,9 @@
+__pycache__/
+.idea/
+*.pyc
+*.pyo
+*.pyd
+*.db
+db_test.png
+plots/
+venv/
