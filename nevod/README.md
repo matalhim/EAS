@@ -1,4 +1,4 @@
-# Project Directory Structure
+# DBs Structure
 
 ## NEAS_DB
 - `YYYY_MM_DD_e`
