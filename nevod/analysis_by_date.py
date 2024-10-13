@@ -16,7 +16,7 @@ db_eas = db_connection.get_database('eas')
 db_decor = db_connection.get_database('decor')
 db_result = db_connection.get_database('result')
 
-split_collection_by_nrun(db_result)
+#split_collection_by_nrun(db_result)
 
 for date in dates_list:
     print(f'День: {date}')
