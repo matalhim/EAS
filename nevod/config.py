@@ -2,10 +2,12 @@
 neas_db = 'NEAS_DB'
 #ДБ ДЕКОР
 decor_db = 'NEVOD_DB'
+# decor_db = 'RESULT1'
 #ДБ с резульатами
 result_db = 'RESULT1'
+# result_db = 'RESULT2'
 # временное окно
-delta_time = 1000
+delta_time = 1e3
 #время для проверки
 check_time = 800
 # число батчей
@@ -13,5 +15,6 @@ BATCH = 1000
 # имя коллекции собранных ранов декор (вручную добавил все документы Gr3s40_... в одну коллекцию)
 runs_colllect = '_runs'
 
+#dates_list = ['2018-12-20']
 dates_list = ['2018-12-19','2018-12-20']
 

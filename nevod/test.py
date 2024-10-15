@@ -1,0 +1,317 @@
+from db_connection import DatabaseConnection  
+from config import (neas_db, decor_db, result_db, dates_list, delta_time)
+from processing import process_coincidences
+# from processing import (split_collection_by_nrun, process_coincidences, 
+#                         add_neas_list_to_coincidences, count_documents_with_large_delta_time, 
+#                         split_TW_documents_by_run, find_events_by_run,collect_documents_by_run,
+#                         find_missing_documents,)
+from tqdm import tqdm
+from pymongo import UpdateOne, errors
+import math
+import time
+from datetime import datetime
+from statistics import mean, median
+from config import (runs_colllect, delta_time, check_time, BATCH, dates_list)
+
+
+def process_coincidences_expos(db_eas, db_decor, db_result, data_decor, data_events, DATE, time_window_collect):
+    """
+    Функция для обработки совпадений между коллекциями data_decor и data_events из разных баз данных 
+    и сохранения результатов в новую коллекцию.
+
+    Параметры:
+    - db_eas: объект базы данных MongoDB для коллекции событий.
+    - db_decor: объект базы данных MongoDB для коллекции декора.
+    - db_result: объект базы данных MongoDB для сохранения результатов.
+    """
+    total_events = 0
+    print(f'Отбор событий во временном окне {delta_time} нс:')
+
+    db_decor[data_decor].create_index('event_time_ns')
+    db_eas[data_events].create_index('time_ns')
+
+    # Получение уникальных значений event_time_ns из data_decor
+    pipeline = [
+        {
+            '$group': {
+                '_id': '$event_time_ns'
+            }
+        },
+        {
+            '$sort': {
+                '_id': 1
+            }
+        }
+    ]
+    unique_event_time_ns_values = [doc['_id'] for doc in db_decor[data_decor].aggregate(pipeline)]
+
+    # Разбиваем данные на батчи
+    BATCH = 1000  # Размер батча, можно настроить
+    batches = [unique_event_time_ns_values[i:i + BATCH] for i in range(0, len(unique_event_time_ns_values), BATCH)]
+
+    with tqdm(total=len(unique_event_time_ns_values), desc='Обработка пакетов') as pbar:
+        for batch in batches:
+            # Выбор документов из data_decor по batch
+            pipeline = [
+                {
+                    '$match': {
+                        'event_time_ns': {'$in': batch}
+                    }
+                },
+                {
+                    '$addFields': {
+                        'start_range': {'$subtract': ['$event_time_ns', delta_time]},
+                        'end_range': {'$add': ['$event_time_ns', delta_time]}
+                    }
+                }
+            ]
+
+            decor_cursor = db_decor[data_decor].aggregate(pipeline, allowDiskUse=True)
+
+            for decor_doc in decor_cursor:
+                start_range = decor_doc['start_range']
+                end_range = decor_doc['end_range']
+                event_time_ns = decor_doc['event_time_ns']
+
+                # Поиск соответствующих событий в data_events по time_ns
+                event_matches = db_eas[data_events].find({
+                    'time_ns': {'$gte': start_range, '$lte': end_range}
+                })
+
+                matched_events = []
+                for event_doc in event_matches:
+                    # Сохраняем каждое найденное событие в список
+                    matched_events.append({
+                        'eas_event_time_ns': event_doc['time_ns'],
+                        'delta_time': event_doc['time_ns'] - event_time_ns,
+                        'cluster': event_doc.get('cluster'),
+                        'interval': event_doc.get('interval'),
+                        'stations': event_doc.get('stations'),
+                        'file_name': event_doc.get('file_name'),
+                        'position': event_doc.get('position'),
+                        'quality': event_doc.get('quality'),
+                    })
+
+                # Если есть совпадения, сохраняем результат
+                if matched_events:
+                    result_document = {
+                        'date': DATE,
+                        'run': decor_doc.get('run'),
+                        'event_time_ns': event_time_ns,
+                        'data_decor_doc': decor_doc,
+                        'matched_events': matched_events
+                    }
+                    db_result[time_window_collect].insert_one(result_document)
+                    total_events += 1
+                    pbar.set_description(f'Отобрано {total_events} событий')
+
+            pbar.update(len(batch))
+
+
+def find_and_update_coincidences(db_result, db_decor, run_collection, decor_collection, DATE):
+    """
+    Функция для поиска совпадений между коллекциями RUN_813_not_events и data_decor
+    и обновления коллекции RUN_813_not_events добавлением найденных документов из data_decor.
+
+    Параметры:
+    - db_result: объект базы данных MongoDB для коллекции RUN_813_not_events.
+    - db_decor: объект базы данных MongoDB для коллекции data_decor.
+    - run_collection: название коллекции RUN_813_not_events.
+    - decor_collection: название коллекции data_decor.
+    """
+    # Получаем общее количество документов в коллекции для корректной работы tqdm
+    total_documents = db_result[run_collection].count_documents({})
+
+    # Переменные для подсчета найденных и ненайденных документов
+    found_count = 0
+    not_found_count = 0
+
+    # Проходим по каждому документу из коллекции RUN_813_not_events
+    run_cursor = db_result[run_collection].find()
+
+    # Создаем прогресс-бар с помощью tqdm
+    with tqdm(total=total_documents, desc="Обработка документов") as pbar:
+        for run_doc in run_cursor:
+            nrun = run_doc.get('NRUN')
+            nevent = run_doc.get('NEvent')
+
+            # Ищем документ в data_decor, где run и event_number совпадают с NRUN и NEvent
+            decor_doc = db_decor[decor_collection].find_one({'run': nrun, 'event_number': nevent})
+
+            if decor_doc:
+                # Извлекаем event_time_ns из документа data_decor
+                event_time_ns = decor_doc.get('event_time_ns')
+
+                # Если найден документ, обновляем документ в RUN_813_not_events, добавляя поле data_decor_doc и event_time_ns
+                db_result[run_collection].update_one(
+                    {'_id': run_doc['_id']},  # Условие для поиска документа
+                    {'$set': {
+                        'event_time_ns': event_time_ns, # Сохраняем отдельно event_time_ns
+                        'date': DATE,  # Сохраняем дату
+                        'data_decor_doc': decor_doc,  # Сохраняем весь документ из data_decor
+                        
+                    }}
+                )
+                found_count += 1
+            else:
+                not_found_count += 1
+
+            # Обновляем прогресс-бар и описание
+            pbar.update(1)
+            pbar.set_description(f'Найдено: {found_count}/{total_documents}, Не найдено: {not_found_count}/{total_documents}')
+            
+def find_closest_events(db_eas, db_result, not_events_collection_name, data_events_collection_name):
+    """
+    Функция для нахождения двух документов в коллекции data_events, максимально близких по времени к значению event_time_ns
+    в коллекции not_events_collection, и добавления этих документов как left_event_doc и right_event_doc в not_events_collection.
+
+    Параметры:
+    - db_eas: объект базы данных MongoDB для коллекции событий (db_eas).
+    - db_result: объект базы данных MongoDB для коллекции результатов (db_result).
+    - not_events_collection_name: название коллекции not_events_collection в базе данных db_result.
+    - data_events_collection_name: название коллекции data_events в базе данных db_eas.
+    """
+
+    # Получаем все документы из not_events_collection и считаем их количество для tqdm
+    not_events_docs = list(db_result[not_events_collection_name].find())
+    total_docs = len(not_events_docs)
+
+    # Создаем прогресс-бар
+    with tqdm(total=total_docs, desc="Обработка документов") as pbar:
+        for not_event_doc in not_events_docs:
+            event_time_ns = not_event_doc.get("data_decor_doc", {}).get("event_time_ns")
+            
+            if event_time_ns is None:
+                print(f"Документ без event_time_ns, пропускаем: {not_event_doc['_id']}")
+                pbar.update(1)
+                continue
+            
+            # Поиск ближайшего слева (left_event_doc) и справа (right_event_doc)
+            
+            # Документ слева: выбираем максимальный eas_event_time_ns, который меньше или равен event_time_ns
+            left_event_doc = db_eas[data_events_collection_name].find_one(
+                {"eas_event_time_ns": {"$lte": event_time_ns}},
+                sort=[("eas_event_time_ns", -1)]  # Сортировка по убыванию, чтобы найти ближайший слева
+            )
+            
+            # Документ справа: выбираем минимальный eas_event_time_ns, который больше или равен event_time_ns
+            right_event_doc = db_eas[data_events_collection_name].find_one(
+                {"eas_event_time_ns": {"$gte": event_time_ns}},
+                sort=[("eas_event_time_ns", 1)]  # Сортировка по возрастанию, чтобы найти ближайший справа
+            )
+
+            # Обновляем документ в not_events_collection, добавляя left_event_doc и right_event_doc
+            update_fields = {}
+            if left_event_doc:
+                left_delta_time = left_event_doc["eas_event_time_ns"] - event_time_ns
+                update_fields["left_delta_time"] = left_delta_time
+                update_fields["left_event_doc"] = left_event_doc
+            if right_event_doc:
+                right_delta_time = right_event_doc["eas_event_time_ns"] - event_time_ns
+                update_fields["right_delta_time"] = right_delta_time
+                update_fields["right_event_doc"] = right_event_doc
+            
+            if update_fields:
+                db_result[not_events_collection_name].update_one(
+                    {"_id": not_event_doc["_id"]},
+                    {"$set": update_fields}
+                )
+                pbar.set_description(f"Обновлен документ {not_event_doc["_id"]}")
+            else:
+                pbar.set_description(f"Не найдены события для документа {not_event_doc["_id"]}")
+
+            # Обновляем прогресс-бар
+            pbar.update(1)
+    
+    print("Обработка завершена.")           
+
+
+def find_closest_events_in_data_e(db_eas, db_result, not_events_collection_name, data_e_collection_name):
+    """
+    Функция для нахождения двух документов в коллекции data_e, максимально близких по времени к значению event_time_ns
+    в коллекции not_events_collection, и добавления этих документов как left_e_doc и right_e_doc в not_events_collection.
+    Также добавляются left_e_delta_time и right_e_delta_time.
+    """
+
+    # Получаем все документы из not_events_collection и считаем их количество для tqdm
+    not_events_docs = list(db_result[not_events_collection_name].find())
+    total_docs = len(not_events_docs)
+
+    # Создаем прогресс-бар
+    with tqdm(total=total_docs, desc="Обработка документов") as pbar:
+        for not_event_doc in not_events_docs:
+            event_time_ns = not_event_doc.get("data_decor_doc", {}).get("event_time_ns")
+            
+            if event_time_ns is None:
+                print(f"Документ без event_time_ns, пропускаем: {not_event_doc['_id']}")
+                pbar.update(1)
+                continue
+            
+            # Поиск ближайшего слева (left_e_doc) и справа (right_e_doc) по полю time_ns
+            
+            # Документ слева: выбираем максимальный time_ns, который меньше или равен event_time_ns
+            left_e_doc = db_eas[data_e_collection_name].find_one(
+                {"time_ns": {"$lte": event_time_ns}},
+                sort=[("time_ns", -1)]  # Сортировка по убыванию, чтобы найти ближайший слева
+            )
+            
+            # Документ справа: выбираем минимальный time_ns, который больше или равен event_time_ns
+            right_e_doc = db_eas[data_e_collection_name].find_one(
+                {"time_ns": {"$gte": event_time_ns}},
+                sort=[("time_ns", 1)]  # Сортировка по возрастанию, чтобы найти ближайший справа
+            )
+
+            # Вычисляем разности времени (delta) для коллекции data_e
+            update_fields = {}
+            if left_e_doc:
+                left_e_delta_time = left_e_doc["time_ns"] - event_time_ns
+                update_fields["left_e_doc"] = left_e_doc
+                update_fields["left_e_delta_time"] = left_e_delta_time
+
+            if right_e_doc:
+                right_e_delta_time = right_e_doc["time_ns"] - event_time_ns
+                update_fields["right_e_doc"] = right_e_doc
+                update_fields["right_e_delta_time"] = right_e_delta_time
+            
+            if update_fields:
+                db_result[not_events_collection_name].update_one(
+                    {"_id": not_event_doc["_id"]},
+                    {"$set": update_fields}
+                )
+                pbar.set_description(f"Обновлен документ {not_event_doc['_id']}")
+            else:
+                pbar.set_description(f"Не найдены события для документа {not_event_doc['_id']}")
+
+            # Обновляем прогресс-бар
+            pbar.update(1)
+    
+    print("Обработка завершена.")
+    
+    
+db_connection = DatabaseConnection()
+
+db_connection.add_database('eas', neas_db)
+db_connection.add_database('decor',  decor_db)
+db_connection.add_database('result', result_db)
+
+db_eas = db_connection.get_database('eas')
+db_decor = db_connection.get_database('decor')
+db_result = db_connection.get_database('result')
+
+for date in dates_list:
+    print(f'День: {date}')
+    data_decor = f'{date}'
+    data_events = f'{date}_events'
+    data_e = f'{date}_e'
+    time_window_collect = f'notevents_{date}_TW_{delta_time}_ns'
+    
+    not_events_collection = 'RUN_813_not_events'
+    #process_coincidences_expos(db_eas, db_decor, db_result, not_events_collection, data_e, date, time_window_collect)
+    #find_and_update_coincidences(db_result, db_decor, not_events_collection, data_decor, date)
+    #find_closest_events(db_eas, db_result, not_events_collection, data_events)
+    find_closest_events_in_data_e(db_eas, db_result, not_events_collection, data_e)
+    
+
+
+#     process_coincidences_expos(db_eas, db_decor, db_result, data_decor,  data_e, date, time_window_collect)
+
