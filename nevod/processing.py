@@ -7,12 +7,10 @@ from statistics import mean, median
 from config import (runs_colllect, delta_time, check_time, BATCH, dates_list)
 
 
-
-
 def split_collection_by_nrun(db):
     """
     Разделяет исходную коллекцию на отдельные коллекции в зависимости от значения поля 'NRUN'.
-    
+
     Параметры:
     - db: объект базы данных MongoDB.
     - runs_colllect (str): имя исходной коллекции с документами.
@@ -20,19 +18,76 @@ def split_collection_by_nrun(db):
     Результат:
     Создает отдельные коллекции в формате '<NRUN>_run', куда записываются только документы с данным значением NRUN.
     """
-    print(f'Разделение коллекции {runs_colllect} на отдельные коллекции по полю NRUN.')
+    print(f'Разделение коллекции {
+          runs_colllect} на отдельные коллекции по полю NRUN.')
     source_collection = db[runs_colllect]
     unique_nrun_values = source_collection.distinct('NRUN')
 
     for nrun in unique_nrun_values:
         new_collection_name = f"_{nrun}_run"
-        
+
         matching_documents = source_collection.find({'NRUN': nrun})
 
         new_collection = db[new_collection_name]
         new_collection.insert_many(matching_documents)
 
     print("Создание коллекций завершено.")
+
+
+def create_my_statistic(db, statistica_collect, my_statistica_collect):
+    statistica_collection = db[statistica_collect]
+    my_statistica_collection = db[my_statistica_collect]
+
+    for document in statistica_collection.find():
+        nabor = document.get("Nabor")
+        if nabor and nabor.startswith("NAD_"):
+            run_number = nabor.split("_")[1]
+            corresponding_collection_name = f"_{run_number}_run"
+            if corresponding_collection_name in db.list_collection_names():
+                corresponding_collection = db[corresponding_collection_name]
+
+                start_time = datetime.strptime(
+                    document["Start"], "%d.%m.%y %H:%M")
+                stop_time = datetime.strptime(
+                    document["Stop"], "%d.%m.%y %H:%M")
+                duration = (stop_time - start_time).total_seconds() / 3600
+                number_of_groups = corresponding_collection.count_documents({})
+                number_of_groups_theta_gt_55 = corresponding_collection.count_documents({
+                                                                                        "Theta": {"$gt": 55}})
+
+                new_document = document.copy()
+                new_document["duration"] = duration
+                new_document["number_of_groups"] = number_of_groups
+                new_document["number_of_groups(theta_gt_55)"] = number_of_groups_theta_gt_55
+
+                my_statistica_collection.insert_one(new_document)
+
+    print("Documents have been successfully copied and updated.")
+
+
+def calculate_groups_per_hour(db, collection_name):
+    collection = db[collection_name]
+
+    for document in collection.find():
+        if "number_of_groups" in document and "duration" in document and document["duration"] != 0:
+            number_of_groups = document["number_of_groups"]
+            number_of_groups_gt = document.get(
+                "number_of_groups(theta_gt_55)", 0)
+            number_of_groups_lt = number_of_groups - number_of_groups_gt
+            duration = document["duration"]
+
+            groups_per_hour = round(number_of_groups / duration, 3)
+            groups_per_hour_gt = round(number_of_groups_gt / duration, 3)
+            groups_per_hour_lt = round(number_of_groups_lt / duration, 3)
+
+            result = collection.update_one({"_id": document["_id"]}, {
+                "$set": {
+                    "groups_per_hour": groups_per_hour,
+                    "groups_per_hour_gt_55": groups_per_hour_gt,
+                    "groups_per_hour_lt_55": groups_per_hour_lt
+                }
+            })
+
 
 def count_unique_runs(db):
     """
@@ -59,6 +114,42 @@ def count_unique_runs(db):
         run_value = result["_id"]
         count = result["count"]
         print(f'run = {run_value}: {count} документов')
+
+
+def group_events(db_eas, db_result, data_eas, result_collection):
+    collection_eas = db_eas[data_eas]
+    collection_result = db_result[result_collection]
+
+    all_documents = list(collection_eas.find())
+    grouped_events = []
+    visited = set()
+
+    for i, doc in tqdm(enumerate(all_documents), total=len(all_documents), desc="Группировка документов"):
+        if i in visited:
+            continue
+
+        current_time_ns = doc['time_ns']
+        event_group = [doc]
+        visited.add(i)
+
+        for j in range(i + 1, len(all_documents)):
+            if j in visited:
+                continue
+
+            other_doc = all_documents[j]
+            other_time_ns = other_doc['time_ns']
+
+            if abs(current_time_ns - other_time_ns) <= delta_time:
+                event_group.append(other_doc)
+                visited.add(j)
+
+        grouped_events.append(event_group)
+
+    for event_group in tqdm(grouped_events, desc="Запись сгруппированных событий"):
+        collection_result.insert_one({'event_documents': event_group})
+
+    print(f"Всего сгруппировано событий: {len(grouped_events)}")
+
 
 def process_coincidences(db_eas, db_decor, db_result, data_decor, data_events, DATE, time_window_collect):
     """
@@ -100,9 +191,11 @@ def process_coincidences(db_eas, db_decor, db_result, data_decor, data_events, D
             }
         }
     ]
-    unique_event_time_ns_values = [doc['_id'] for doc in db_decor[data_decor].aggregate(pipeline)]
+    unique_event_time_ns_values = [doc['_id']
+                                   for doc in db_decor[data_decor].aggregate(pipeline)]
 
-    batches = [unique_event_time_ns_values[i:i + BATCH] for i in range(0, len(unique_event_time_ns_values), BATCH)]
+    batches = [unique_event_time_ns_values[i:i + BATCH]
+               for i in range(0, len(unique_event_time_ns_values), BATCH)]
 
     with tqdm(total=total_count, desc='Обработка пакетов') as pbar:
         for batch in batches:
@@ -120,7 +213,8 @@ def process_coincidences(db_eas, db_decor, db_result, data_decor, data_events, D
                 }
             ]
 
-            decor_cursor = db_decor[data_decor].aggregate(pipeline, allowDiskUse=True)
+            decor_cursor = db_decor[data_decor].aggregate(
+                pipeline, allowDiskUse=True)
 
             for decor_doc in decor_cursor:
                 start_range = decor_doc['start_range']
@@ -146,7 +240,7 @@ def process_coincidences(db_eas, db_decor, db_result, data_decor, data_events, D
                     pbar.set_description(f'Отобрано {total_events} события/й)')
 
             pbar.update(len(batch))
-            
+
 
 def count_documents_with_large_delta_time(db_result, time_window_collect):
     """
@@ -164,8 +258,8 @@ def count_documents_with_large_delta_time(db_result, time_window_collect):
         }
     })
     print(f'Количество документов с abs(delta_time) > {check_time}: {count}')
-    
-                
+
+
 def add_neas_list_to_coincidences(db_eas, db_result, time_window_collect, data_e):
     """
     Функция для обновления документов в коллекции совпадений, добавляя поле 'neas_list' с полными документами из 'data_e'.
@@ -182,16 +276,19 @@ def add_neas_list_to_coincidences(db_eas, db_result, time_window_collect, data_e
     total_documents = db_result[time_window_collect].count_documents({})
 
     with tqdm(total=total_documents, desc='Обновление документов') as pbar:
-        cursor = db_result[time_window_collect].find({}, no_cursor_timeout=True)
+        cursor = db_result[time_window_collect].find(
+            {}, no_cursor_timeout=True)
 
         for doc in cursor:
             list_of_ids = doc['data_events_doc'].get('list_of_ids', [])
 
             if list_of_ids:
-                data_e_docs = list(db_eas[data_e].find({'_id': {'$in': list_of_ids}}))
+                data_e_docs = list(db_eas[data_e].find(
+                    {'_id': {'$in': list_of_ids}}))
 
                 data_e_docs_ordered = []
-                data_e_docs_dict = {data_e_doc['_id']: data_e_doc for data_e_doc in data_e_docs}
+                data_e_docs_dict = {
+                    data_e_doc['_id']: data_e_doc for data_e_doc in data_e_docs}
 
                 for id in list_of_ids:
                     data_e_docs_ordered.append(data_e_docs_dict.get(id))
@@ -211,8 +308,8 @@ def add_neas_list_to_coincidences(db_eas, db_result, time_window_collect, data_e
             pbar.update(1)
 
         cursor.close()
-        
-        
+
+
 def split_TW_documents_by_run(db_result, time_window_collect):
     """
     Функция для разбиения документов в коллекции совпадений по различным значениям 'run' и сохранения их в новые коллекции.
@@ -231,9 +328,9 @@ def split_TW_documents_by_run(db_result, time_window_collect):
         run_docs = list(db_result[time_window_collect].find({'run': run}))
         if run_docs:
             db_result[run_collection_name].insert_many(run_docs)
-        print('\n')    
+        print('\n')
         print(f'run = {run}, docs_count = {len(run_docs)}')
-    
+
     return runs
 
 
@@ -249,9 +346,9 @@ def create_events_collection(db, time_window_collect, DATE, run):
     run_TW_collect = f'RUN_{run}_{time_window_collect}'
     db[run_collect].create_index('NEvent')
     total_documents = db[run_TW_collect].count_documents({})
-        
+
     print(f'Создание коллекции "{run_events}" совместных событий')
-    
+
     with tqdm(total=total_documents, desc=f'Создание коллекции RUN_{run}_DATE_{DATE}_events') as pbar:
         cursor = db[time_window_collect].find({}, no_cursor_timeout=True)
 
@@ -274,15 +371,18 @@ def create_events_collection(db, time_window_collect, DATE, run):
 
         cursor.close()
     total_documents = db[run_events].count_documents({})
-    print(f"Коллекция '{run_events}' создана. Всего {total_documents} документа/ов")
+    print(f"Коллекция '{run_events}' создана. Всего {
+          total_documents} документа/ов")
+
 
 def find_events_by_run(db_result, time_window_collect, DATE, runs):
     """
     Функция пройдется по всем runs за день, и отберет для i-го рана события из _{runs[i]}_run.
     """
-    
+
     for run in runs:
         create_events_collection(db_result, time_window_collect, DATE, run)
+
 
 def collect_documents_by_run(db_result):
     run_operations = {}
@@ -314,8 +414,10 @@ def collect_documents_by_run(db_result):
 
                         run_operations[collection_key].append(
                             UpdateOne(
-                                {'_id': doc['_id']},  # Условие для поиска существующего документа
-                                {'$set': new_doc},     # Обновление данных документа
+                                # Условие для поиска существующего документа
+                                {'_id': doc['_id']},
+                                # Обновление данных документа
+                                {'$set': new_doc},
                                 upsert=True            # Вставить, если не найден
                             )
                         )
@@ -324,32 +426,36 @@ def collect_documents_by_run(db_result):
     for collection_key, operations in run_operations.items():
         if operations:
             db_result[collection_key].bulk_write(operations)
-            print(f'Сохранено {len(operations)} документов в коллекцию {collection_key}')
+            print(f'Сохранено {len(operations)
+                               } документов в коллекцию {collection_key}')
 
-            
-               
+
 def find_missing_documents(db):
-    collections = [col for col in db.list_collection_names() if col.startswith('RUN_') and col.count('_') == 2 and col.endswith('_events')]
+    collections = [col for col in db.list_collection_names() if col.startswith(
+        'RUN_') and col.count('_') == 2 and col.endswith('_events')]
 
     for events_collection_name in collections:
         # Extract the run number from the collection name
         run = events_collection_name.split('_')[1]
         run_collection_name = f"_{run}_run"
         not_events_collection_name = f"RUN_{run}_not_events"
-        
+
         # Retrieve all event numbers from the events collection
-        event_numbers = set(doc["data_decor_doc"]["event_number"] for doc in db[events_collection_name].find({}, {"data_decor_doc.event_number": 1}))
-        
+        event_numbers = set(doc["data_decor_doc"]["event_number"]
+                            for doc in db[events_collection_name].find({}, {"data_decor_doc.event_number": 1}))
+
         # Find documents in the run collection where NEvent is not in the event numbers
-        run_documents = db[run_collection_name].find({"NEvent": {"$nin": list(event_numbers)}})
-        
+        run_documents = db[run_collection_name].find(
+            {"NEvent": {"$nin": list(event_numbers)}})
+
         # Insert these documents into the not_events collection
         run_documents_list = list(run_documents)
         if len(run_documents_list) > 0:
             db[not_events_collection_name].insert_many(run_documents_list)
 
     print("Documents have been filtered and inserted successfully.")
-                     
+
+
 def calculate_events_direction(db, events_collection_name):
 
     total_documents = db[events_collection_name].count_documents({})
@@ -399,11 +505,13 @@ def calculate_events_direction(db, events_collection_name):
                 'Phi': Phi_812_run_doc
             }
 
-            db[events_collection_name].update_one({'_id': doc['_id']}, {'$set': {'direction': direction}})
+            db[events_collection_name].update_one(
+                {'_id': doc['_id']}, {'$set': {'direction': direction}})
 
             pbar.update(1)
 
         cursor.close()
+
 
 def compute_angles_between_vectors(db, events_collection_name):
     """
@@ -419,6 +527,7 @@ def compute_angles_between_vectors(db, events_collection_name):
     """
     average_angles = []
     median_angles = []
+
     def calculate_angle(theta1, phi1, theta2, phi2):
         """
         Вычисляет угол между двумя векторами, заданными углами theta и phi.
@@ -469,17 +578,20 @@ def compute_angles_between_vectors(db, events_collection_name):
 
             if None not in (Theta, Phi):
                 if None not in (average_theta, average_phi):
-                    angle_avg = calculate_angle(average_theta, average_phi, Theta, Phi)
+                    angle_avg = calculate_angle(
+                        average_theta, average_phi, Theta, Phi)
                     average_angles.append(angle_avg)
 
                 if None not in (median_theta, median_phi):
-                    angle_med = calculate_angle(median_theta, median_phi, Theta, Phi)
+                    angle_med = calculate_angle(
+                        median_theta, median_phi, Theta, Phi)
                     median_angles.append(angle_med)
 
             pbar.update(1)
 
         cursor.close()
     return average_angles, median_angles
+
 
 def get_theta_values(db, collection_name):
     """
