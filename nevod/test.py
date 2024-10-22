@@ -1,3 +1,4 @@
+import json as json
 import math
 import re
 import time
@@ -19,6 +20,7 @@ from graph_processing import plot_event_histogram, plot_theta_distribution_all
 from processing import process_coincidences
 from pymongo import MongoClient, UpdateOne, errors
 from tqdm import tqdm
+import json as json
 
 # from processing import (split_collection_by_nrun, process_coincidences,
 #                         add_neas_list_to_coincidences, count_documents_with_large_delta_time,
@@ -556,6 +558,55 @@ def update_not_events_with_work_status(db_result, not_events_collection_name, no
     print("Обработка завершена.")
 
 
+def update_anomaly_flags(db_name, collection_name, date):
+    """
+    Функция для обновления документов в коллекции на основе аномальных интервалов.
+
+    Аргументы:
+    - db_name: Название базы данных.
+    - collection_name: Название коллекции, в которой обновляются данные.
+    - json_file_path: Путь к JSON-файлу с аномальными интервалами.
+    """
+    # Функция для проверки попадания event_time_ns в один из аномальных интервалов
+    def check_if_anomalous(event_time_ns, anomaly_intervals):
+        for interval in anomaly_intervals:
+            if interval["anomaly_start"] <= event_time_ns <= interval["anomaly_end"]:
+                return False, interval["anomaly_start"], interval["anomaly_end"]
+        return True, None, None
+
+    collection = db_name[collection_name]
+    json_file_path = f'./nevod/json_files/{date}_anomalies.json'
+
+    # Загрузка аномальных интервалов из JSON файла
+    with open(json_file_path, 'r') as f:
+        anomaly_intervals = json.load(f)
+
+    # Обрабатываем каждый документ в коллекции
+    for document in collection.find():
+        event_time_ns = document.get("event_time_ns")
+
+        if event_time_ns is not None:
+            flag, start, end = check_if_anomalous(
+                event_time_ns, anomaly_intervals)
+
+            update_data = {
+                "is_no_anomaly": {
+                    "flag": flag
+                }
+            }
+
+            if not flag:
+                update_data["is_no_anomaly"]["start"] = start
+                update_data["is_no_anomaly"]["end"] = end
+
+            collection.update_one(
+                {"_id": document["_id"]},
+                {"$set": update_data}
+            )
+
+    print("Обработка завершена.")
+
+
 db_connection = DatabaseConnection()
 
 db_connection.add_database('eas', neas_db)
@@ -572,14 +623,15 @@ for date in dates_list:
     data_decor = f'{date}'
     data_events = f'{date}_events'
     data_e = f'{date}_e'
-    time_window_collect = f'{date}_goo_e_events_TW_{delta_time}_ns'
+    time_window_collect = f'{date}__e_events_TW_{delta_time}_ns'
 
     not_events_collection = 'RUN_813_not_events'
-    # process_coincidences_expos(db_eas, db_decor, db_result, not_events_collection, data_e, date, time_window_collect)
+    # process_coincidences_expos(db_eas, db_decor, db_result,
+    # not_events_collection, data_e, date, time_window_collect)
     # find_and_update_coincidences(db_result, db_decor, not_events_collection, data_decor, date)
     # find_closest_events(db_eas, db_result, not_events_collection, data_events)
     # find_closest_events_in_data_e(
-    #     db_eas, db_result, not_events_collection, data_e)
+    #    db_eas, db_result, not_events_collection, data_e)
 
     # group_events(db_eas, db_result, data_e, time_window_collect)
 
@@ -594,12 +646,14 @@ for date in dates_list:
 
     # find_nearest_events(db_eas, data_e, 12934253777139)
 
-# print(not_working_times)
-# print(not_working_times)
-#     process_coincidences_expos(db_eas, db_decor, db_result, data_decor,  data_e, date, time_window_collect)
+    # print(not_working_times)
+    # print(not_working_times)
+    #     process_coincidences_expos(db_eas, db_decor, db_result, data_decor,  data_e, date, time_window_collect)
 
-# update_not_events_with_work_status(
-#     db_result, not_events_collection, not_working_times)
+    # update_not_events_with_work_status(
+    #     db_result, not_events_collection, not_working_times)
 
+    # plot_theta_distribution_all(db_result, not_events_collection)
 
-plot_theta_distribution_all(db_result, not_events_collection)
+    update_anomaly_flags(db_result, not_events_collection, date)
+    break
