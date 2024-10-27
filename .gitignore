@@ -7,3 +7,4 @@ __pycache__/
 db_test.png
 plots/
 venv/
+dataset/
