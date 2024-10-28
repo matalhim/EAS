@@ -67,9 +67,10 @@ def create_my_statistic(db, statistica_collect, my_statistica_collect):
 
 def calculate_groups_per_hour(db, collection_name):
     collection = db[collection_name]
-
+    total_groups = 0
+    total_duration = 0
     for document in collection.find():
-        if "number_of_groups" in document and "duration" in document and document["duration"] != 0:
+        if "number_of_groups" in document and "Life_t,hour" in document and document["Life_t,hour"] != 0:
             number_of_groups = document["number_of_groups"]
             number_of_groups_gt = document.get(
                 "number_of_groups(theta_gt_55)", 0)
@@ -80,13 +81,18 @@ def calculate_groups_per_hour(db, collection_name):
             groups_per_hour_gt = round(number_of_groups_gt / duration, 3)
             groups_per_hour_lt = round(number_of_groups_lt / duration, 3)
 
+            total_groups += number_of_groups
+            total_duration += duration
+
             result = collection.update_one({"_id": document["_id"]}, {
                 "$set": {
                     "groups_per_hour": groups_per_hour,
                     "groups_per_hour_gt_55": groups_per_hour_gt,
                     "groups_per_hour_lt_55": groups_per_hour_lt
                 }
-            })
+            }
+            )
+            print(total_groups, total_duration)
 
 
 def count_unique_runs(db):
