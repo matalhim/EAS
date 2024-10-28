@@ -20,7 +20,6 @@ from graph_processing import plot_event_histogram, plot_theta_distribution_all
 from processing import process_coincidences
 from pymongo import MongoClient, UpdateOne, errors
 from tqdm import tqdm
-import json as json
 
 # from processing import (split_collection_by_nrun, process_coincidences,
 #                         add_neas_list_to_coincidences, count_documents_with_large_delta_time,
@@ -640,7 +639,7 @@ for date in dates_list:
 
     # count_documents_by_quality(db_eas, data_e)
 
-    # plot_event_histogram(db_eas, data_e, date)
+    #plot_event_histogram(db_eas, data_e, date)
     # gaps = find_gaps_in_data(db_eas, data_e, threshold_ns=180e9)
     # not_working_times.append({date: gaps})
 
@@ -653,7 +652,7 @@ for date in dates_list:
     # update_not_events_with_work_status(
     #     db_result, not_events_collection, not_working_times)
 
-    # plot_theta_distribution_all(db_result, not_events_collection)
+    plot_theta_distribution_all(db_result, not_events_collection)
 
-    update_anomaly_flags(db_result, not_events_collection, date)
-    break
+    # update_anomaly_flags(db_result, not_events_collection, date)
+    # break
