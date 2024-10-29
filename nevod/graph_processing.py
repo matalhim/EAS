@@ -186,10 +186,9 @@ def plot_groups_per_hour(db, collection_name):
         #     (life_t_hours[i] - min_life_t_hour) / \
         #     (max_life_t_hour - min_life_t_hour)
         alpha_value = 1
-        # Получаем цвет для каждого столбца из разных цветовых схем
-        # Синий для theta <= 55
+
         color_lt_55 = cmap_lt_55(norm(life_t_hours[i]))
-        # Красный для theta > 55
+
         color_gt_55 = cmap_gt_55(norm(life_t_hours[i]))
 
         ax.bar(index,
@@ -209,13 +208,12 @@ def plot_groups_per_hour(db, collection_name):
                label=(r'$\theta > 55^{\circ} \qquad \mu_{\theta > 55^\circ}= %.1f$' % mean_gt_55) +
                      (r'$\qquad M_{\theta > 55^\circ}= %.1f$' % median_gt_55) if i == 0 else "")
 
-        # Добавляем границы столбцов с полной непрозрачностью
         ax.bar(index,
                groups_per_hour_lt_55_values[i],
                bar_width,
                edgecolor='black',
                linewidth=2,
-               color='none')  # Используем color='none' для отрисовки только границ
+               color='none')
 
         ax.bar(index,
                groups_per_hour_gt_55_values[i],
@@ -223,12 +221,12 @@ def plot_groups_per_hour(db, collection_name):
                bottom=groups_per_hour_lt_55_values[i],
                edgecolor='black',
                linewidth=2,
-               color='none')  # Используем color='none' для отрисовки только границ
+               color='none')
 
-    ax.set_xlabel('номер рана', fontsize=14)
+    ax.set_xlabel('run', fontsize=14)
     ax.set_ylabel(r'групп в час, $\frac{N}{t}$', fontsize=14)
     ax.set_title(
-        'Гистограмма частоты групп мюонов по номеру рана', fontsize=16)
+        'Гистограмма частоты групп мюонов по run', fontsize=16)
     ax.set_ylim(0, 10)
 
     custom_line = ax.axhline(y=1, xmin=0.05, xmax=0.15, color='white',
@@ -249,11 +247,10 @@ def plot_groups_per_hour(db, collection_name):
     ax.grid(True)
     plt.tight_layout()
 
-    # Добавляем цветовую шкалу сбоку для каждого цветового мэппинга
     sm_lt_55 = cm.ScalarMappable(cmap=cmap_lt_55, norm=norm)
-    sm_lt_55.set_array([])  # Создаем пустой массив для мэппинга
+    sm_lt_55.set_array([])
     cbar_lt = fig.colorbar(sm_lt_55, ax=ax, aspect=30, pad=0.02)
-    cbar_lt.set_label(r'$t_{run}$ длительность рана, ч', fontsize=14)
+    cbar_lt.set_label(r'$t_{run}$ длительность run, ч', fontsize=14)
 
     plt.savefig('./nevod/plots/hist_groups_per_hour.png')
     plt.show()
@@ -267,7 +264,6 @@ def plot_event_histogram(db, collection_name, date):
 
     time_in_minutes = [time / 1e9 / 60 for time in time_ns_values]
 
-    # Построение гистограммы, где каждый столбец соответствует одной минуте
     plt.figure(figsize=(14, 4))
     plt.hist(time_in_minutes, bins=np.arange(np.floor(
         min(time_in_minutes)), np.ceil(max(time_in_minutes)) + 1), color='black', alpha=0.7)
@@ -318,7 +314,7 @@ def plot_theta_distribution_all(db_result, not_events_collection_name):
     plt.xticks(range(0, 91, 5))
     plt.yticks(range(0, 4))
     plt.title(
-        r'813 ран: распределение значений $\theta$', fontsize=16)
+        r'19-12-2018, 20-12-2018, RUN 813: распределение значений $\theta$', fontsize=16)
     plt.grid(axis='y', linestyle='--', linewidth=0.7)
     plt.savefig('./nevod/plots/813run_hist_theta.png')
     plt.show()
