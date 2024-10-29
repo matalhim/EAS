@@ -97,7 +97,7 @@ def plot_histogram(df, intervals, bins, date):
     plt.bar(bin_edges[:-1], normal_hist, color='black', alpha=0.7, width=1)
 
     plt.bar(bin_edges[:-1], anomalous_hist, color='red',
-            alpha=0.5, width=1, label='аномальный диапозон')
+            alpha=0.5, width=1)
 
     plt.xlabel('время регистрации (минуты)')
     plt.ylabel('количество событий')

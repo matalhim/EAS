@@ -30,5 +30,5 @@ db = db_connection.get_database('run_events')
 
 # load_2_mongo(db, folder_path)
 # hist_events_by_day(db)
-# plot_delta_time_vs_events(db)
-plot_events_histogram(db, my_statistica_collect)
+plot_delta_time_vs_events(db)
+# plot_events_histogram(db, my_statistica_collect)
