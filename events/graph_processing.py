@@ -1,4 +1,3 @@
-from statistics import mean, median, stdev
 import datetime
 import math
 import time
@@ -74,7 +73,7 @@ def plot_delta_time_vs_events(db):
     median_delta_time = median(delta_time_list)
     stdev_delta_time = stdev(delta_time_list)
 
-    plt.figure(figsize=(14, 8))
+    plt.figure(figsize=(15, 8))
 
     # Настраиваем bins, чтобы метки совпадали с центром бина (например, 100, 200 и т.д.)
     bin_width = 10
@@ -93,7 +92,10 @@ def plot_delta_time_vs_events(db):
 
     # Выставляем метки под каждые 100, ровно под соответствующие бины
     tick_positions = np.arange(100, 701, 100)
-    plt.xticks(tick_positions, [f"{int(pos)}" for pos in tick_positions])
+    plt.xticks(tick_positions, [
+               f"{int(pos)}" for pos in tick_positions], fontsize=15)
+
+    plt.yticks(fontsize=15)
 
     # Добавляем вертикальные линии для среднего, медианы и стандартного отклонения
     plt.axvline(mean_delta_time, color='r', linestyle='dashed',
@@ -107,12 +109,12 @@ def plot_delta_time_vs_events(db):
 
     plt.xlim(0, 650)
     plt.xlabel(
-        r'временной интервал, $\Delta t = t_{Д} - t_{НШ}$, нс', fontsize=14)
-    plt.ylabel("Число событий, n", fontsize=14)
+        r'временной интервал, $\Delta t = t_{Д} - t_{НШ}$, нс', fontsize=20)
+    plt.ylabel("Число событий, n", fontsize=20)
 
-    plt.title("Распределение числа совместных событий по временному интервалу между ДЕКОР и НЕВОД-ШАЛ", fontsize=16)
+    plt.title("Распределение числа совместных событий по временному интервалу между ДЕКОР и НЕВОД-ШАЛ", fontsize=20)
     plt.grid(axis='y')
-    plt.legend()
+    plt.legend(fontsize=15)
     plt.savefig('./events/plots/hist_delta_time_vs_events.png')
     plt.show()
 
@@ -151,7 +153,7 @@ def plot_events_histogram(db, my_statistica_collection_name):
 
     cmap_total = cm.Reds(np.linspace(0.4, 1, 256))
     cmap_total = mcolors.ListedColormap(cmap_total)
-    cmap_not_found = cm.Blues(np.linspace(0.4, 1, 256))
+    cmap_not_found = cm.Greens(np.linspace(0.4, 1, 256))
     cmap_not_found = mcolors.ListedColormap(cmap_not_found)
 
     fig, ax = plt.subplots(figsize=(14, 8))
@@ -179,20 +181,21 @@ def plot_events_histogram(db, my_statistica_collection_name):
                linewidth=2,
                label="число событий" if i == 0 else "")
 
-    ax.set_xlabel('run', fontsize=14)
-    ax.set_ylabel('число событий', fontsize=14)
+    ax.set_xlabel('RUN', fontsize=20)
+    ax.set_ylabel('число событий', fontsize=20)
     ax.set_title(
-        'Гистограмма числа событий групп мюонов по run', fontsize=16)
+        'Гистограмма числа событий групп мюонов по RUN', fontsize=20)
     ax.set_xticks(indices)
-    ax.set_xticklabels(runs, rotation=90)
+    ax.set_xticklabels(runs, rotation=90, fontsize=15)
+    ax.set_yticklabels(ax.get_yticks(), fontsize=15)
     ax.set_ylim(0, 300)
 
     sm_life_t = cm.ScalarMappable(cmap=cmap_not_found, norm=norm)
     sm_life_t.set_array([])
     cbar_life_t = fig.colorbar(sm_life_t, ax=ax, aspect=30, pad=0.02)
-    cbar_life_t.set_label(r'$t_{run}$ длительность run, ч', fontsize=14)
+    cbar_life_t.set_label(r'$t_{run}$ длительность RUN, ч', fontsize=20)
 
-    ax.legend(loc='upper right')
+    ax.legend(loc='upper right', fontsize=16)
     plt.tight_layout()
     plt.savefig('./events/plots/plot_events_histogram.png')
     plt.show()

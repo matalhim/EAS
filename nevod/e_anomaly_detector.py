@@ -92,7 +92,7 @@ def plot_histogram(df, intervals, bins, date):
     normal_hist = [hist[i] if colors[i] ==
                    'blue' else 0 for i in range(len(hist))]
 
-    plt.figure(figsize=(14, 4))
+    plt.figure(figsize=(14, 4.4))
 
     plt.bar(bin_edges[:-1], normal_hist, color='black', alpha=0.7, width=1)
 
@@ -100,8 +100,9 @@ def plot_histogram(df, intervals, bins, date):
             alpha=0.5, width=1)
 
     plt.xlabel('время регистрации (минуты)')
-    plt.ylabel('количество событий')
-    plt.title(f'{date}: гистограмма событий НЕВОД-ШАЛ по времени')
+    plt.ylabel('количество событий', fontsize=16)
+    plt.title(
+        f'{date}, 2018-12-20: гистограммы событий НЕВОД-ШАЛ по времени', fontsize=18)
     plt.legend()
 
     plt.savefig(f'./nevod/plots//{date}_anomal_hist_events_by_time.png')

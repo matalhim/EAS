@@ -3,14 +3,13 @@ import time
 from datetime import datetime
 from statistics import mean, median, stdev
 
-import matplotlib.pyplot as plt
-import matplotlib.colors as mcolors
 import matplotlib.cm as cm
+import matplotlib.colors as mcolors
+import matplotlib.pyplot as plt
 import numpy as np
 from config import BATCH, check_time, dates_list, delta_time, runs_colllect
 from pymongo import UpdateOne, errors
 from tqdm import tqdm
-
 
 # def plot_groups_per_hour(db, collection_name):
 #     collection = db[collection_name]
@@ -121,12 +120,6 @@ from tqdm import tqdm
 #     plt.show()
 
 
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.colors as mcolors
-import matplotlib.cm as cm
-
-
 def plot_groups_per_hour(db, collection_name):
     collection = db[collection_name]
     nabor_numbers = []
@@ -134,7 +127,6 @@ def plot_groups_per_hour(db, collection_name):
     groups_per_hour_gt_55_values = []
     life_t_hours = []
 
-    # Загружаем данные
     for document in collection.find():
         if "Nabor" in document and "groups_per_hour_gt_55" in document and "groups_per_hour_lt_55" in document and "Life_t,hour" in document:
             nabor = document["Nabor"]
@@ -148,15 +140,13 @@ def plot_groups_per_hour(db, collection_name):
             groups_per_hour_lt_55_values.append(groups_per_hour_lt_55)
             life_t_hours.append(life_t_hour)
 
-    # Определяем минимальные и максимальные значения для нормализации
     min_life_t_hour = min(life_t_hours)
     max_life_t_hour = max(life_t_hours)
 
-    # Создаем объекты для отображения градиента
     norm = mcolors.Normalize(vmin=min_life_t_hour, vmax=max_life_t_hour)
-    cmap_lt_55 = cm.Blues  # Цветовая схема для theta <= 55
-    cmap_gt_55 = cm.Reds   # Цветовая схема для theta > 55
-    # Берем от 30% до 100% палитры
+    cmap_lt_55 = cm.Blues
+    cmap_gt_55 = cm.Reds
+
     cmap_lt_55 = cm.Blues(np.linspace(0.4, 1, 256))
     cmap_lt_55 = mcolors.ListedColormap(cmap_lt_55)
 
@@ -176,15 +166,12 @@ def plot_groups_per_hour(db, collection_name):
     median_gt_55 = np.median(groups_per_hour_gt_55_values)
     median_lt_55 = np.median(groups_per_hour_lt_55_values)
 
-    fig, ax = plt.subplots(figsize=(14, 8))
+    fig, ax = plt.subplots(figsize=(16, 8))
     bar_width = 0.5
     indices = np.arange(len(nabor_numbers))
 
-    # Рисуем столбцы с цветом, зависящим от life_t_hours
     for i, index in enumerate(indices):
-        # alpha_value = 0.8 + 0.2 * \
-        #     (life_t_hours[i] - min_life_t_hour) / \
-        #     (max_life_t_hour - min_life_t_hour)
+
         alpha_value = 1
 
         color_lt_55 = cmap_lt_55(norm(life_t_hours[i]))
@@ -196,8 +183,8 @@ def plot_groups_per_hour(db, collection_name):
                bar_width,
                color=color_lt_55,
                alpha=alpha_value,
-               label=(r'$\theta \leq 55^{\circ} \qquad \mu_{\theta \leq 55^\circ}= %.1f$' % mean_lt_55) +
-                     (r'$\qquad M_{\theta \leq 55^\circ}= %.1f$' % median_lt_55) if i == 0 else "")
+               label=(r'$40^{\circ} \leq \theta \leq 55^{\circ} \qquad \mu_{40^{\circ} \leq \theta \leq 55^\circ}= %.1f$' % mean_lt_55) +
+                     (r'$\qquad M_{40^{\circ} \leq \theta \leq 55^\circ}= %.1f$' % median_lt_55) if i == 0 else "")
 
         ax.bar(index,
                groups_per_hour_gt_55_values[i],
@@ -223,14 +210,14 @@ def plot_groups_per_hour(db, collection_name):
                linewidth=2,
                color='none')
 
-    ax.set_xlabel('run', fontsize=14)
-    ax.set_ylabel(r'групп в час, $\frac{N}{t}$', fontsize=14)
+    ax.set_xlabel('run', fontsize=20)
+    ax.set_ylabel(r'групп в час, $\frac{N}{t}$', fontsize=20)
     ax.set_title(
-        'Гистограмма частоты групп мюонов по run', fontsize=16)
+        'Гистограмма частоты групп мюонов по RUN', fontsize=20)
     ax.set_ylim(0, 10)
 
     custom_line = ax.axhline(y=1, xmin=0.05, xmax=0.15, color='white',
-                             linewidth=0.1, label=('2018-12-17 - 2019-02-03\n') + (r'$\sum_{i}N_{групп, i}=6661 \quad \sum_{i}t_{run, i}=1049 $'))
+                             linewidth=0.1, label=('2018-12-17 - 2019-02-03') + (r'$\quad \sum_{i}N_{групп, i}=6661 \quad \sum_{i}t_{run, i}=1049 $'))
 
     handles, labels = ax.get_legend_handles_labels()
     handles.insert(0, custom_line)
@@ -242,15 +229,16 @@ def plot_groups_per_hour(db, collection_name):
                linewidth=1, label=r'$M =  %.1f$' % median_value)
 
     ax.set_xticks(indices)
-    ax.set_xticklabels(nabor_numbers, rotation=90)
-    ax.legend()
+    ax.set_xticklabels(nabor_numbers, rotation=90, fontsize=15)
+    ax.legend(fontsize=18)
     ax.grid(True)
     plt.tight_layout()
+    ax.set_yticklabels(ax.get_yticks(), fontsize=15)
 
     sm_lt_55 = cm.ScalarMappable(cmap=cmap_lt_55, norm=norm)
     sm_lt_55.set_array([])
     cbar_lt = fig.colorbar(sm_lt_55, ax=ax, aspect=30, pad=0.02)
-    cbar_lt.set_label(r'$t_{run}$ длительность run, ч', fontsize=14)
+    cbar_lt.set_label(r'$t_{run}$ длительность RUN, ч', fontsize=20)
 
     plt.savefig('./nevod/plots/hist_groups_per_hour.png')
     plt.show()
@@ -264,12 +252,12 @@ def plot_event_histogram(db, collection_name, date):
 
     time_in_minutes = [time / 1e9 / 60 for time in time_ns_values]
 
-    plt.figure(figsize=(14, 4))
+    plt.figure(figsize=(14, 4.4))
     plt.hist(time_in_minutes, bins=np.arange(np.floor(
         min(time_in_minutes)), np.ceil(max(time_in_minutes)) + 1), color='black', alpha=0.7)
-    plt.xlabel('время регистрации (минуты)')
-    plt.ylabel('количество событий')
-    plt.title(f'{date}: гистограмма событий НЕВОД-ШАЛ по времени')
+    plt.xlabel('время регистрации (минуты)', fontsize=16)
+    plt.ylabel('количество событий', fontsize=16)
+    # plt.title(f'{date}: гистограмма событий НЕВОД-ШАЛ по времени',)
     plt.grid(axis='y', linestyle='--', linewidth=0.7)
     plt.savefig(f'./nevod/plots/{date}_hist_events+_by_time.png')
     plt.show()
@@ -302,19 +290,19 @@ def plot_theta_distribution_all(db_result, not_events_collection_name):
     # Построение диаграммы
     plt.figure(figsize=(12, 6))
     plt.hist(theta_values_below_55, bins=range(0, 91), edgecolor='black', linewidth=1,
-             align='left', rwidth=0.9, alpha=0.7, label=r'$\sum_{\theta < 55^\circ}$' + f'= {len(theta_values_below_55)}')
+             align='left', rwidth=0.9, alpha=0.7, label=r'$\sum_{40^\circ \leq \theta < 55^\circ}$' + f'= {len(theta_values_below_55)}')
 
     plt.hist(theta_values_above_or_equal_55, bins=range(0, 91), edgecolor='black', linewidth=1, align='left', rwidth=0.9,
              alpha=0.7, color='red', label=r'$\sum_{\theta \geq 55^\circ}$' + f' = {len(theta_values_above_or_equal_55)}')
 
-    plt.legend(loc='upper right', fontsize=12)
-    plt.xlabel(r'$\theta \degree$', fontsize=14)
-    plt.ylabel('Количество событий', fontsize=14)
+    plt.legend(loc='upper right', fontsize=15)
+    plt.xlabel(r'$\theta \degree$', fontsize=20)
+    plt.ylabel('Количество событий', fontsize=20)
     plt.ylim(0, 3.5)
-    plt.xticks(range(0, 91, 5))
-    plt.yticks(range(0, 4))
+    plt.xticks(range(0, 91, 5), fontsize=15)
+    plt.yticks(range(0, 4), fontsize=15)
     plt.title(
-        r'19-12-2018, 20-12-2018, RUN 813: распределение значений $\theta$', fontsize=16)
+        r'19-12-2018, 20-12-2018, RUN 813: распределение значений $\theta$', fontsize=20)
     plt.grid(axis='y', linestyle='--', linewidth=0.7)
     plt.savefig('./nevod/plots/813run_hist_theta.png')
     plt.show()
