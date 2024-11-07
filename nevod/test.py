@@ -617,7 +617,7 @@ db_decor = db_connection.get_database('decor')
 db_result = db_connection.get_database('result')
 
 not_working_times = list()
-for date in dates_list:
+for date in dates_list[1:]:
     print(f'День: {date}')
     data_decor = f'{date}'
     data_events = f'{date}_events'
@@ -639,7 +639,7 @@ for date in dates_list:
 
     # count_documents_by_quality(db_eas, data_e)
 
-    #plot_event_histogram(db_eas, data_e, date)
+    # plot_event_histogram(db_eas, data_e, date)
     # gaps = find_gaps_in_data(db_eas, data_e, threshold_ns=180e9)
     # not_working_times.append({date: gaps})
 
