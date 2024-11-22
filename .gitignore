@@ -8,3 +8,4 @@ db_test.png
 plots/
 venv/
 dataset/
+data/expanded_synthetic_dataset.csv
