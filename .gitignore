@@ -9,3 +9,5 @@ plots/
 venv/
 dataset/
 data/expanded_synthetic_dataset.csv
+data/train1.csv
+data/train.csv
