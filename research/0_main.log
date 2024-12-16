@@ -1,0 +1,2109 @@
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.3)  16 DEC 2024 09:19
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**d:/github/repositories/eas/research/0_main
+(d:/github/repositories/eas/research/0_main.tex
+LaTeX2e <2024-11-01> patch level 1
+L3 programming layer <2024-11-02>
+(d:/programs/texlive/2024/texmf-dist/tex/latex/memoir/memoir.cls
+Document Class: memoir 2024/01/26 v3.8.2 configurable book, report, article document class
+(d:/programs/texlive/2024/texmf-dist/tex/latex/xpatch/xpatch.sty (d:/programs/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2024-11-02 L3 programming layer (loader) 
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2024-05-08 L3 backend support: XeTeX
+\g__graphics_track_int=\count192
+\l__pdf_internal_box=\box52
+\g__pdf_backend_annotation_int=\count193
+\g__pdf_backend_link_int=\count194
+))
+Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2024-08-16 L3 Experimental document command parser
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count195
+))
+\onelineskip=\skip49
+\lxvchars=\skip50
+\xlvchars=\skip51
+\@memcnta=\count196
+\c@@memmarkcntra=\count197
+ (d:/programs/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)
+\trimtop=\skip52
+\trimedge=\skip53
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/memoir/mem14.clo
+File: mem14.clo 2022/07/29 v0.5 memoir class 14pt size option
+)
+\binding=\skip54
+\spinemargin=\skip55
+\foremargin=\skip56
+\uppermargin=\skip57
+\lowermargin=\skip58
+\headdrop=\skip59
+\normalrulethickness=\skip60
+\mem@maxheadheight=\skip61
+\mem@maxfootheight=\skip62
+\headwidth=\skip63
+\c@storedpagenumber=\count198
+\memPD=\dimen141
+\m@mabparskip=\skip64
+\thanksmarkwidth=\skip65
+\thanksmarksep=\skip66
+\droptitle=\skip67
+\c@book=\count199
+\c@part=\count266
+\c@chapter=\count267
+\c@section=\count268
+\c@subsection=\count269
+\c@subsubsection=\count270
+\c@paragraph=\count271
+\c@subparagraph=\count272
+\beforechapskip=\skip68
+\midchapskip=\skip69
+\afterchapskip=\skip70
+\chapindent=\skip71
+\bottomsectionskip=\skip72
+\secindent=\skip73
+\beforesecskip=\skip74
+\aftersecskip=\skip75
+\subsecindent=\skip76
+\beforesubsecskip=\skip77
+\aftersubsecskip=\skip78
+\subsubsecindent=\skip79
+\beforesubsubsecskip=\skip80
+\aftersubsubsecskip=\skip81
+\paraindent=\skip82
+\beforeparaskip=\skip83
+\afterparaskip=\skip84
+\subparaindent=\skip85
+\beforesubparaskip=\skip86
+\aftersubparaskip=\skip87
+\pfbreakskip=\skip88
+\c@@ppsavesec=\count273
+\c@@ppsaveapp=\count274
+\ragrparindent=\dimen142
+\everylistparindent=\dimen143
+\parsepi=\skip89
+\topsepi=\skip90
+\itemsepi=\skip91
+\parsepii=\skip92
+\topsepii=\skip93
+\topsepiii=\skip94
+\itemsepii=\skip95
+\itemsepiii=\skip96
+\partopsepii=\skip97
+\partopsepiii=\skip98
+\m@msavetopsep=\skip99
+\m@msavepartopsep=\skip100
+\@enLab=\toks17
+\abstitleskip=\skip101
+\absleftindent=\skip102
+\abs@leftindent=\dimen144
+\absrightindent=\skip103
+\absparindent=\skip104
+\absparsep=\skip105
+\c@vslineno=\count275
+\c@poemline=\count276
+\c@modulo@vs=\count277
+\c@memfvsline=\count278
+\vleftskip=\skip106
+\vrightskip=\skip107
+\stanzaskip=\skip108
+\versewidth=\skip109
+\vgap=\skip110
+\vindent=\skip111
+\vleftmargin=\dimen145
+\c@verse=\count279
+\c@chrsinstr=\count280
+\beforepoemtitleskip=\skip112
+\afterpoemtitleskip=\skip113
+\c@poem=\count281
+\beforePoemTitleskip=\skip114
+\midPoemTitleskip=\skip115
+\afterPoemTitleskip=\skip116
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/tools/array.sty
+Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
+\col@sep=\dimen146
+\ar@mcellbox=\box53
+\extrarowheight=\dimen147
+\NC@list=\toks18
+\extratabsurround=\skip117
+\backup@length=\skip118
+\ar@cellbox=\box54
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/tools/dcolumn.sty
+Package: dcolumn 2023/07/08 v1.06 decimal alignment package (DPC)
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/tools/delarray.sty
+Package: delarray 2014/10/28 v1.01 array delimiter package (DPC)
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen148
+\TX@old@table=\dimen149
+\TX@old@col=\dimen150
+\TX@target=\dimen151
+\TX@delta=\dimen152
+\TX@cols=\count282
+\TX@ftn=\toks19
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen153
+\lightrulewidth=\dimen154
+\cmidrulewidth=\dimen155
+\belowrulesep=\dimen156
+\belowbottomsep=\dimen157
+\aboverulesep=\dimen158
+\abovetopsep=\dimen159
+\cmidrulesep=\dimen160
+\cmidrulekern=\dimen161
+\defaultaddspace=\dimen162
+\@cmidla=\count283
+\@cmidlb=\count284
+\@aboverulesep=\dimen163
+\@belowrulesep=\dimen164
+\@thisruleclass=\count285
+\@lastruleclass=\count286
+\@thisrulewidth=\dimen165
+)
+\ctableftskip=\skip119
+\ctabrightskip=\skip120
+\abovecolumnspenalty=\count287
+\@linestogo=\count288
+\@cellstogo=\count289
+\@cellsincolumn=\count290
+\crtok=\toks20
+\@mincolumnwidth=\dimen166
+\c@newflo@tctr=\count291
+\mem@margin@floatbox=\box55
+\@contcwidth=\skip121
+\@contindw=\skip122
+\abovecaptionskip=\skip123
+\belowcaptionskip=\skip124
+\subfloattopskip=\skip125
+\subfloatcapskip=\skip126
+\subfloatcaptopadj=\skip127
+\subfloatbottomskip=\skip128
+\subfloatlabelskip=\skip129
+\subfloatcapmargin=\dimen167
+\c@@contsubnum=\count292
+\m@mscap@capbox=\box56
+\m@mscap@fbox=\box57
+\sidecapsep=\dimen168
+\sidecapwidth=\dimen169
+\m@m@tempdima=\dimen170
+\m@mscapraise=\dimen171
+\sidecapraise=\dimen172
+\m@mscapmainwidth=\dimen173
+\m@mscaplkern=\dimen174
+\beforeepigraphskip=\skip130
+\afterepigraphskip=\skip131
+\epigraphwidth=\skip132
+\epigraphrule=\skip133
+LaTeX Info: Redefining \em on input line 6932.
+LaTeX Info: Redefining \emph on input line 6940.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+ (d:/programs/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (d:/programs/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)) (d:/programs/texlive/2024/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)))
+\c@section@level=\count293
+)
+\tocentryskip=\skip134
+\tocbaseline=\skip135
+\cftparskip=\skip136
+\cftbeforebookskip=\skip137
+\cftbookindent=\dimen175
+\cftbooknumwidth=\dimen176
+\cftbeforepartskip=\skip138
+\cftpartindent=\skip139
+\cftpartnumwidth=\skip140
+\cftbeforechapterskip=\skip141
+\cftchapterindent=\skip142
+\cftchapternumwidth=\skip143
+\cftbeforesectionskip=\skip144
+\cftsectionindent=\skip145
+\cftsectionnumwidth=\skip146
+\cftbeforesubsectionskip=\skip147
+\cftsubsectionindent=\skip148
+\cftsubsectionnumwidth=\skip149
+\cftbeforesubsubsectionskip=\skip150
+\cftsubsubsectionindent=\skip151
+\cftsubsubsectionnumwidth=\skip152
+\cftbeforeparagraphskip=\skip153
+\cftparagraphindent=\skip154
+\cftparagraphnumwidth=\skip155
+\cftbeforesubparagraphskip=\skip156
+\cftsubparagraphindent=\skip157
+\cftsubparagraphnumwidth=\skip158
+\prechapterprecisshift=\dimen177
+\c@maxsecnumdepth=\count294
+\bibindent=\dimen178
+\bibitemsep=\skip159
+\indexcolsep=\skip160
+\indexrule=\skip161
+\indexmarkstyle=\toks22
+\@indexbox=\insert252
+LaTeX Info: Redefining \raggedbottom on input line 7935.
+LaTeX Info: Redefining \flushbottom on input line 7939.
+\glossarycolsep=\dimen179
+\glossaryrule=\dimen180
+\sideparvshift=\skip162
+\sideins=\insert251
+\sidebartopsep=\skip163
+\sidebarhsep=\skip164
+\sidebarvsep=\skip165
+\sidebarwidth=\skip166
+\footmarkwidth=\skip167
+\footmarksep=\skip168
+\footparindent=\skip169
+\footinsdim=\skip170
+\footinsv@r=\insert250
+\@mpfootinsv@r=\insert249
+\m@m@k=\count295
+\m@m@h=\dimen181
+\m@mipn@skip=\skip171
+\sidefootins=\insert248
+\sidefootadjust=\skip172
+\sidefootheight=\skip173
+\sidefoothsep=\skip174
+\sidefootvsep=\skip175
+\sidefootwidth=\skip176
+\m@mdownsf=\skip177
+\c@sidefootnote=\count296
+\sidefootmarkwidth=\skip178
+\sidefootmarksep=\skip179
+\sidefootparindent=\skip180
+\c@pagenote=\count297
+\c@pagenoteshadow=\count298
+\mem@pn@lastkern=\skip181
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks23
+\verbatim@line=\toks24
+\verbatim@in@stream=\read2
+)
+\verbatimindent=\skip182
+\verbatim@out=\write3
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/base/shortvrb.sty
+Package: shortvrb 2024/10/23 v3.0q Standard LaTeX documentation package V3 (FMi)
+)
+\bvboxsep=\skip183
+\c@memfbvline=\count299
+\c@bvlinectr=\count300
+\bvnumlength=\skip184
+\fb@frw=\dimen182
+\fb@frh=\dimen183
+\FrameRule=\dimen184
+\FrameSep=\dimen185
+\c@cp@cntr=\count301
+\c@ism@mctr=\count302
+\c@xsm@mctr=\count303
+\c@csm@mctr=\count304
+\c@ksm@mctr=\count305
+\c@xksm@mctr=\count306
+\c@cksm@mctr=\count307
+\c@msm@mctr=\count308
+\c@xmsm@mctr=\count309
+\c@cmsm@mctr=\count310
+\c@bsm@mctr=\count311
+\c@workm@mctr=\count312
+\c@sheetsequence=\count313
+\c@lastsheet=\count314
+\c@lastpage=\count315
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/textcase/textcase.sty
+Package: textcase 2023/07/27 v1.04 Text only upper/lower case changing (DPC)
+Package textcase Info: Defining Legacy names on input line 20.
+)
+\c@figure=\count316
+\c@lofdepth=\count317
+\cftbeforefigureskip=\skip185
+\cftfigureindent=\skip186
+\cftfigurenumwidth=\skip187
+\c@table=\count318
+\c@lotdepth=\count319
+\cftbeforetableskip=\skip188
+\cfttableindent=\skip189
+\cfttablenumwidth=\skip190
+Package abstract [2008/07/23] emulated by memoir.
+Package appendix [2008/07/23] emulated by memoir.
+Package ccaption [2008/07/23] emulated by memoir.
+Package changepage [2008/07/23] emulated by memoir.
+Package chngcntr [2008/07/23] emulated by memoir.
+Package chngpage [2008/07/23] emulated by memoir.
+Package crop emulated by memoir.
+Package enumerate [2008/07/23] emulated by memoir.
+Package epigraph [2008/07/23] emulated by memoir.
+Package ifmtarg [2008/07/23] emulated by memoir.
+Package index [2008/07/23] emulated by memoir.
+Package makeidx [2008/07/23] emulated by memoir.
+Package moreverb [2008/07/23] emulated by memoir.
+Package needspace [2008/07/23] emulated by memoir.
+Package newfile [2008/07/23] emulated by memoir.
+Package nextpage [2008/07/23] emulated by memoir.
+Package pagenote [2008/07/23] emulated by memoir.
+Package parskip [2008/07/23] emulated by memoir.
+Package patchcmd [2008/07/23] emulated by memoir.
+Package setspace [2008/07/23] emulated by memoir.
+Package shortvrb [2008/07/23] emulated by memoir.
+Package showidx [2008/07/23] emulated by memoir.
+Package titleref [2008/07/23] emulated by memoir.
+Package titling [2008/07/23] emulated by memoir.
+Package tocbibind [2008/07/23] emulated by memoir.
+Package tocloft [2008/07/23] emulated by memoir.
+Package tocvsec2 [2008/07/23] emulated by memoir.
+Package verbatim [2008/07/23] emulated by memoir.
+Package verse [2008/07/23] emulated by memoir.
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (d:/programs/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count320
+\Gm@cntv=\count321
+\c@Gm@tempcnt=\count322
+\Gm@bindingoffset=\dimen186
+\Gm@wd@mp=\dimen187
+\Gm@odd@mp=\dimen188
+\Gm@even@mp=\dimen189
+\Gm@layoutwidth=\dimen190
+\Gm@layoutheight=\dimen191
+\Gm@layouthoffset=\dimen192
+\Gm@layoutvoffset=\dimen193
+\Gm@dimlist=\toks25
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/csquotes/csquotes.sty
+Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
+\csq@reset=\count323
+\csq@gtype=\count324
+\csq@glevel=\count325
+\csq@qlevel=\count326
+\csq@maxlvl=\count327
+\csq@tshold=\count328
+\csq@ltx@everypar=\toks26
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/csquotes/csquotes.def
+File: csquotes.def 2024-04-04 v5.2o csquotes generic definitions (JAW)
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/csquotes/csquotes.cfg
+File: csquotes.cfg 
+)) (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
+ (d:/programs/texlive/2024/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count329
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+)) (d:/programs/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+\c@tabx@nest=\count330
+\c@listtotal=\count331
+\c@listcount=\count332
+\c@liststart=\count333
+\c@liststop=\count334
+\c@citecount=\count335
+\c@citetotal=\count336
+\c@multicitecount=\count337
+\c@multicitetotal=\count338
+\c@instcount=\count339
+\c@maxnames=\count340
+\c@minnames=\count341
+\c@maxitems=\count342
+\c@minitems=\count343
+\c@citecounter=\count344
+\c@maxcitecounter=\count345
+\c@savedcitecounter=\count346
+\c@uniquelist=\count347
+\c@uniquename=\count348
+\c@refsection=\count349
+\c@refsegment=\count350
+\c@maxextratitle=\count351
+\c@maxextratitleyear=\count352
+\c@maxextraname=\count353
+\c@maxextradate=\count354
+\c@maxextraalpha=\count355
+\c@abbrvpenalty=\count356
+\c@highnamepenalty=\count357
+\c@lownamepenalty=\count358
+\c@maxparens=\count359
+\c@parenlevel=\count360
+\blx@tempcnta=\count361
+\blx@tempcntb=\count362
+\blx@tempcntc=\count363
+\c@blx@maxsection=\count364
+\blx@maxsegment@0=\count365
+\blx@notetype=\count366
+\blx@parenlevel@text=\count367
+\blx@parenlevel@foot=\count368
+\blx@sectionciteorder@0=\count369
+\blx@sectionciteorderinternal@0=\count370
+\blx@entrysetcounter=\count371
+\blx@biblioinstance=\count372
+\labelnumberwidth=\skip191
+\labelalphawidth=\skip192
+\biblabelsep=\skip193
+\bibnamesep=\skip194
+\bibinitsep=\skip195
+\bibparsep=\skip196
+\bibhang=\skip197
+\blx@bcfin=\read3
+\blx@bcfout=\write4
+\blx@langwohyphens=\language89
+\c@mincomprange=\count373
+\c@maxcomprange=\count374
+\c@mincompwidth=\count375
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2024/03/21 v3.20 biblatex datamodel (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'gost-numeric.dbx' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex-gost/gost-numeric.dbx
+File: gost-numeric.dbx 2023/04/25 v1.24 biblatex-gost data model
+Package biblatex Info: Trying to load biblatex-gost data model...
+Package biblatex Info: ... file 'biblatex-gost.dbx' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex-gost/biblatex-gost.dbx
+File: biblatex-gost.dbx 2023/04/25 v1.24 biblatex-gost data model
+))
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count376
+\c@savedafterword=\count377
+\c@annotator=\count378
+\c@savedannotator=\count379
+\c@author=\count380
+\c@savedauthor=\count381
+\c@bookauthor=\count382
+\c@savedbookauthor=\count383
+\c@commentator=\count384
+\c@savedcommentator=\count385
+\c@editor=\count386
+\c@savededitor=\count387
+\c@editora=\count388
+\c@savededitora=\count389
+\c@editorb=\count390
+\c@savededitorb=\count391
+\c@editorc=\count392
+\c@savededitorc=\count393
+\c@foreword=\count394
+\c@savedforeword=\count395
+\c@holder=\count396
+\c@savedholder=\count397
+\c@introduction=\count398
+\c@savedintroduction=\count399
+\c@namea=\count400
+\c@savednamea=\count401
+\c@nameb=\count402
+\c@savednameb=\count403
+\c@namec=\count404
+\c@savednamec=\count405
+\c@translator=\count406
+\c@savedtranslator=\count407
+\c@shortauthor=\count408
+\c@savedshortauthor=\count409
+\c@shorteditor=\count410
+\c@savedshorteditor=\count411
+\c@booktranslator=\count412
+\c@savedbooktranslator=\count413
+\c@bookcommentator=\count414
+\c@savedbookcommentator=\count415
+\c@bookannotator=\count416
+\c@savedbookannotator=\count417
+\c@bookintroduction=\count418
+\c@savedbookintroduction=\count419
+\c@bookforeword=\count420
+\c@savedbookforeword=\count421
+\c@bookafterword=\count422
+\c@savedbookafterword=\count423
+\c@labelname=\count424
+\c@savedlabelname=\count425
+\c@institution=\count426
+\c@savedinstitution=\count427
+\c@lista=\count428
+\c@savedlista=\count429
+\c@listb=\count430
+\c@savedlistb=\count431
+\c@listc=\count432
+\c@savedlistc=\count433
+\c@listd=\count434
+\c@savedlistd=\count435
+\c@liste=\count436
+\c@savedliste=\count437
+\c@listf=\count438
+\c@savedlistf=\count439
+\c@location=\count440
+\c@savedlocation=\count441
+\c@organization=\count442
+\c@savedorganization=\count443
+\c@origlocation=\count444
+\c@savedoriglocation=\count445
+\c@origpublisher=\count446
+\c@savedorigpublisher=\count447
+\c@publisher=\count448
+\c@savedpublisher=\count449
+\c@language=\count450
+\c@savedlanguage=\count451
+\c@origlanguage=\count452
+\c@savedoriglanguage=\count453
+\c@bookoriglanguage=\count454
+\c@savedbookoriglanguage=\count455
+\c@specdata=\count456
+\c@savedspecdata=\count457
+\c@credits=\count458
+\c@savedcredits=\count459
+\c@bookcredits=\count460
+\c@savedbookcredits=\count461
+\c@editioncredits=\count462
+\c@savededitioncredits=\count463
+\c@pageref=\count464
+\c@savedpageref=\count465
+\shorthandwidth=\skip198
+\shortjournalwidth=\skip199
+\shortserieswidth=\skip256
+\shorttitlewidth=\skip257
+\shortauthorwidth=\skip258
+\shorteditorwidth=\skip259
+\locallabelnumberwidth=\skip260
+\locallabelalphawidth=\skip261
+\localshorthandwidth=\skip262
+\localshortjournalwidth=\skip263
+\localshortserieswidth=\skip264
+\localshorttitlewidth=\skip265
+\localshortauthorwidth=\skip266
+\localshorteditorwidth=\skip267
+Package biblatex Info: Trying to load enhanced support for Unicode engines...
+Package biblatex Info: ... file 'blx-unicode.def' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex/blx-unicode.def)
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
+\c@textcitecount=\count466
+\c@textcitetotal=\count467
+\c@textcitemaxnames=\count468
+\c@biburlbigbreakpenalty=\count469
+\c@biburlbreakpenalty=\count470
+\c@biburlnumpenalty=\count471
+\c@biburlucpenalty=\count472
+\c@biburllcpenalty=\count473
+\biburlbigskip=\muskip18
+\biburlnumskip=\muskip19
+\biburlucskip=\muskip20
+\biburllcskip=\muskip21
+\c@smartand=\count474
+)
+Package biblatex Info: Trying to load bibliography style 'gost-numeric'...
+Package biblatex Info: ... file 'gost-numeric.bbx' found.
+ (./gost-numeric.bbx
+File: gost-numeric.bbx 2023/04/25 v1.24 biblatex-gost styles
+Package biblatex Info: Trying to load bibliography style 'gost-standard'...
+Package biblatex Info: ... file 'gost-standard.bbx' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex-gost/gost-standard.bbx
+File: gost-standard.bbx 2023/04/25 v1.24 biblatex-gost styles
+Package biblatex Info: Trying to load biblatex-gost generic definitions...
+Package biblatex Info: ... file 'biblatex-gost.def' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex-gost/biblatex-gost.def
+File: biblatex-gost.def 2023/04/25 v1.24 biblatex-gost styles
+)
+\c@blx@gost@pointer=\count475
+\c@bbx:relatedcount=\count476
+\c@bbx:relatedtotal=\count477
+Package biblatex Info: Redefining autocite command 'footnote'.
+Package biblatex Info: Redefining autocite command 'superscript'.
+))
+Package biblatex Info: Trying to load citation style 'gost-numeric'...
+Package biblatex Info: ... file 'gost-numeric.cbx' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex-gost/gost-numeric.cbx
+File: gost-numeric.cbx 2023/04/25 v1.24 biblatex-gost styles
+Package biblatex Info: Trying to load citation style 'numeric-comp'...
+Package biblatex Info: ... file 'numeric-comp.cbx' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
+File: numeric-comp.cbx 2024/03/21 v3.20 biblatex citation style (PK/MW)
+\c@cbx@tempcnta=\count478
+\c@cbx@tempcntb=\count479
+\c@cbx@tempcntc=\count480
+\c@cbx@tempcntd=\count481
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+))
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: XeTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Document encoding is UTF8 ....
+Package biblatex Info: ... and expl3
+(biblatex)             2024-11-02 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
+))
+Package biblatex Info: Delimiter 'bibinitdelim' in context '' already defined, overwriting on input line 28.
+ (d:/programs/texlive/2024/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2024/11/30 v24.14 The multilingual framework for pdfLaTeX, LuaLaTeX and XeLaTeX
+\babel@savecnt=\count482
+\U@D=\dimen194
+\l@unhyphenated=\language90
+ (d:/programs/texlive/2024/texmf-dist/tex/generic/babel/xebabel.def)
+\bbl@readstream=\read4
+\bbl@dirlevel=\count483
+ (d:/programs/texlive/2024/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language23). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language23). Reported on input line 108.
+) (d:/programs/texlive/2024/texmf-dist/tex/generic/babel-russian/russianb.ldf
+File: russianb.ldf 2021/01/10 1.3m Russian support for the Babel system
+Language: russian 2020/09/09 1.3k Russian support for the Babel system
+Package babel Info: Making " an active character on input line 124.
+Package babel Info: Default for \cyrdash is provided on input line 163.
+)) (d:/programs/texlive/2024/texmf-dist/tex/generic/babel/locale/ru/babel-russian.tex
+Package babel Info: Importing font and identification data for russian
+(babel)             from babel-ru.ini. Reported on input line 11.
+) (d:/programs/texlive/2024/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 11.
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
+
+
+d:/programs/texlive/2024/texmf-dist/tex/latex/hyphenat/hyphenat.sty:39: LaTeX Error: Unknown option `nobreak' for package `hyphenat'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.39 \newlanguage
+                 \langwohyphens
+The option `nobreak' was not declared in package `hyphenat', perhaps you
+misspelled its name. Try typing  <return>  to proceed.
+
+\langwohyphens=\language91
+LaTeX Info: Redefining \_ on input line 43.
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/fontspec/fontspec.sty
+Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+\l__fontspec_script_int=\count484
+\l__fontspec_language_int=\count485
+\l__fontspec_strnum_int=\count486
+\l__fontspec_tmp_int=\count487
+\l__fontspec_tmpa_int=\count488
+\l__fontspec_tmpb_int=\count489
+\l__fontspec_tmpc_int=\count490
+\l__fontspec_em_int=\count491
+\l__fontspec_emdef_int=\count492
+\l__fontspec_strong_int=\count493
+\l__fontspec_strongdef_int=\count494
+\l__fontspec_tmpa_dim=\dimen195
+\l__fontspec_tmpb_dim=\dimen196
+\l__fontspec_tmpc_dim=\dimen197
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+
+Package fontspec Info: 
+(fontspec)             Language 'Russian' not explicitly supported within font
+(fontspec)             'Times New Roman' with script 'Cyrillic'. Check the
+(fontspec)             typeset output, and if it is okay then ignore this
+(fontspec)             warning. Otherwise a different font should be chosen.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'TimesNewRoman(0)' created for font 'Times
+(fontspec)             New Roman' with options
+(fontspec)             [Ligatures=TeX,Script=Cyrillic,Language=Russian].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"Times New
+(fontspec)             Roman/OT:script=cyrl;language=RUS;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"Times New
+(fontspec)             Roman/OT:script=cyrl;language=RUS;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"Times New
+(fontspec)             Roman/B/OT:script=cyrl;language=RUS;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"Times
+(fontspec)             New
+(fontspec)             Roman/B/OT:script=cyrl;language=RUS;+smcp;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.: <->"Times New
+(fontspec)             Roman/I/OT:script=cyrl;language=RUS;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->"Times New
+(fontspec)             Roman/I/OT:script=cyrl;language=RUS;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"Times New
+(fontspec)             Roman/BI/OT:script=cyrl;language=RUS;mapping=tex-text;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->"Times New
+(fontspec)             Roman/BI/OT:script=cyrl;language=RUS;+smcp;mapping=tex-text;"
+
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 106.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
+))
+\Gin@req@height=\dimen198
+\Gin@req@width=\dimen199
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen256
+\captionmargin=\dimen257
+\caption@leftmargin=\dimen258
+\caption@rightmargin=\dimen259
+\caption@width=\dimen260
+\caption@indent=\dimen261
+\caption@parindent=\dimen262
+\caption@hangindent=\dimen263
+Package caption Info: memoir document class detected.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/caption/caption-memoir.sto
+File: caption-memoir.sto 2023/09/08 v2.2c Adaption of the caption package to the memoir document class (AR)
+))
+\c@caption@flags=\count495
+\c@continuedfloat=\count496
+Package caption Info: changepage package is loaded.
+\caption@adjustwidth@hsize=\dimen264
+\caption@adjustwidth@linewidth=\dimen265
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count497
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count498
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/placeins/placeins.sty
+Package: placeins 2005/04/18  v 2.2
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
+ (d:/programs/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (d:/programs/texlive/2024/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (d:/programs/texlive/2024/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\@linkdim=\dimen266
+\Hy@linkcounter=\count499
+\Hy@pagecounter=\count500
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
+) (d:/programs/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count501
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Option `unicode' set `true' on input line 3143.
+Package hyperref Info: Hyper figures OFF on input line 4157.
+Package hyperref Info: Link nesting OFF on input line 4162.
+Package hyperref Info: Hyper index ON on input line 4165.
+Package hyperref Info: Plain pages OFF on input line 4172.
+Package hyperref Info: Backreferencing OFF on input line 4177.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4424.
+\c@Hy@tempcnt=\count502
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen267
+ (d:/programs/texlive/2024/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (d:/programs/texlive/2024/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count503
+\Field@Width=\dimen268
+\Fld@charsize=\dimen269
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring OFF on input line 6062.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count504
+\c@Item=\count505
+\c@Hfootnote=\count506
+)
+Package hyperref Info: Driver (autodetected): hxetex.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2024-11-05 v7.01l Hyperref driver for XeTeX
+\pdfm@box=\box58
+\c@Hy@AnnotLevel=\count507
+\HyField@AnnotCount=\count508
+\Fld@listcount=\count509
+\c@bookmark@seq@number=\count510
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+) (d:/programs/texlive/2024/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip268
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/memoir/memhfixc.sty
+Package: memhfixc 2023/09/10 v1.22 hyperref package fixes for memoir class
+\c@memhycontfloat=\count511
+\c@Hpagenote=\count512
+
+
+LaTeX Warning: Command `\theHpagenote' already defined -- not changed on input line 315.
+
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 126.
+Package hyperref Info: Option `linktocpage' set `true' on input line 126.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip269
+\enit@outerparindent=\dimen270
+\enit@toks=\toks27
+\enit@inbox=\box59
+\enit@count@id=\count513
+\enitdp@description=\count514
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2024/11/05 v2.17t AMS math features
+\@mathmargin=\skip270
+
+For additional information on amsmath, use the `?' option.
+(d:/programs/texlive/2024/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks28
+\ex@=\dimen271
+)) (d:/programs/texlive/2024/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen272
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count515
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count516
+\leftroot@=\count517
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count518
+\DOTSCASE@=\count519
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box60
+\strutbox@=\box61
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen273
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count520
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count521
+\dotsspace@=\muskip22
+\c@parentequation=\count522
+\dspbrk@lvl=\count523
+\tag@help=\toks29
+\row@=\count524
+\column@=\count525
+\maxfields@=\count526
+\andhelp@=\toks30
+\eqnshift@=\dimen274
+\alignsep@=\dimen275
+\tagshift@=\dimen276
+\tagwidth@=\dimen277
+\totwidth@=\dimen278
+\lineht@=\dimen279
+\@envbody=\toks31
+\multlinegap=\skip271
+\multlinetaggap=\skip272
+\mathdisplay@stack=\toks32
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/gensymb/gensymb.sty
+Package: gensymb 2022/10/17 v1.0.2 (KJH)
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen280
+\WF@size=\dimen281
+\c@WF@wrappedlines=\count527
+\WF@box=\box62
+\WF@everypar=\toks33
+Package: wrapfig 2003/01/31  v 3.6
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
+\LTleft=\skip273
+\LTright=\skip274
+\LTpre=\skip275
+\LTpost=\skip276
+\LTchunksize=\count528
+\LTcapwidth=\dimen282
+\LT@head=\box63
+\LT@firsthead=\box64
+\LT@foot=\box65
+\LT@lastfoot=\box66
+\LT@gbox=\box67
+\LT@cols=\count529
+\LT@rows=\count530
+\c@LT@tables=\count531
+\c@LT@chunks=\count532
+\LT@p@ftn=\toks34
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip277
+\multirow@cntb=\count533
+\multirow@dima=\skip278
+\bigstrutjot=\dimen283
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen284
+\c@nlinenum=\count534
+\TeXr@lab=\toks35
+) (d:/programs/texlive/2024/texmf-dist/tex/generic/soul/soulutf8.sty
+Package: soulutf8 2023-06-14 v3.1 Permit use of UTF-8 characters in soul (HO)
+
+
+Package soulutf8 Warning: This package is obsolete,
+(soulutf8)                use the soul package directly. 
+(soulutf8)                 on input line 29.
+
+) (d:/programs/texlive/2024/texmf-dist/tex/generic/soul/soul.sty
+Package: soul 2023-06-14 v3.1 Permit use of UTF-8 characters in soul (HO)
+ (d:/programs/texlive/2024/texmf-dist/tex/generic/soul/soul-ori.sty
+Package: soul-ori 2023-06-14 v3.1 letterspacing/underlining (mf)
+\SOUL@word=\toks36
+\SOUL@lasttoken=\toks37
+\SOUL@syllable=\toks38
+\SOUL@cmds=\toks39
+\SOUL@buffer=\toks40
+\SOUL@token=\toks41
+\SOUL@syllgoal=\dimen285
+\SOUL@syllwidth=\dimen286
+\SOUL@charkern=\dimen287
+\SOUL@hyphkern=\dimen288
+\SOUL@dimen=\dimen289
+\SOUL@dimeni=\dimen290
+\SOUL@minus=\count535
+\SOUL@comma=\count536
+\SOUL@apo=\count537
+\SOUL@grave=\count538
+\SOUL@spaceskip=\skip279
+\SOUL@ttwidth=\dimen291
+\SOUL@uldp=\dimen292
+\SOUL@ulht=\dimen293
+) (d:/programs/texlive/2024/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (d:/programs/texlive/2024/texmf-dist/tex/latex/was/icomma.sty
+Package: icomma 2002/03/10 v2.0 (WaS)
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/mhchem/mhchem.sty
+Package: mhchem 2024/01/29 v4.10 for typesetting chemical formulae
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2024-08-16 LaTeX2e option processing using LaTeX3 keys
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count539
+\calc@Bcount=\count540
+\calc@Adimen=\dimen294
+\calc@Bdimen=\dimen295
+\calc@Askip=\skip280
+\calc@Bskip=\skip281
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count541
+\calc@Cskip=\skip282
+) (d:/programs/texlive/2024/texmf-dist/tex/latex/chemgreek/chemgreek.sty
+Package: chemgreek 2020/01/16 v1.1a interface for upright Greek letters for use in chemistry (CN)
+\l__chemgreek_tmpa_int=\count542
+\g__chemgreek_tmpa_int=\count543
+)
+\l__mhchem_ce_distanceFromLastComma_int=\count544
+\__mhchem_arrow_extPgfLength_skip=\skip283
+\mhchem@minispace@tmp=\skip284
+\mhchem@minibackspace@tmp=\skip285
+\mhchem@bondwidth=\skip286
+\mhchem@bondheight=\skip287
+\mhchem@smallbondwidth@tmpA=\skip288
+\mhchem@smallbondwidth@tmpB=\skip289
+\mhchem@smallbondwidth=\skip290
+\mhchem@bondtmp@minussidebearingleft=\skip291
+\mhchem@bondtmp@minussidebearingright=\skip292
+\l__mhchem_option_version_int=\count545
+\mhchem@option@minusmathsidebearingleft=\dimen296
+\mhchem@option@minusmathsidebearingright=\dimen297
+\mhchem@option@minustextsidebearingleft=\dimen298
+\mhchem@option@minustextsidebearingright=\dimen299
+)
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... found 'babel' package.
+Package csquotes Info: Adjusting default style.
+Package csquotes Info: Redefining alias 'default' -> 'russian'.
+
+No file 0_main.aux.
+\openout1 = `0_main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(85.35826pt, 469.47049pt, 42.67912pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=469.47049pt
+* \textheight=731.23584pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-54.5457pt
+* \headheight=17.5pt
+* \headsep=21.68121pt
+* \topskip=14.4pt
+* \footskip=28.90755pt
+* \marginparwidth=7.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=12.0pt plus 4.0pt minus 4.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package biblatex Info: Trying to load language 'russian' -> 'russian-gost'...
+Package biblatex Info: ... file 'russian-gost.lbx' found.
+(d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex-gost/russian-gost.lbx
+File: russian-gost.lbx 2023/04/25 v1.24 biblatex-gost styles
+Package biblatex Info: Trying to load language 'russian'...
+Package biblatex Info: ... file 'russian.lbx' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex/lbx/russian.lbx
+File: russian.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'russian'...
+Package biblatex Info: ... file 'russian.lbx' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex/lbx/russian.lbx
+File: russian.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
+))
+Package biblatex Info: Trying to load language 'english' -> 'english-gost'...
+Package biblatex Info: ... file 'english-gost.lbx' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex-gost/english-gost.lbx
+File: english-gost.lbx 2023/04/25 v1.24 biblatex-gost styles
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
+))
+Package biblatex Info: XeTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Data encoding 'utf8' specified.
+(biblatex)             No need to reencode data.
+\openout4 = `0_main.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file '0_main.bbl' not found.
+
+No file 0_main.bbl.
+Package biblatex Info: Reference section=0 on input line 182.
+Package biblatex Info: Reference segment=0 on input line 182.
+
+Package babel Info: The following font families will use the default
+(babel)             settings for all or some languages:
+(babel)             * \sffamily = lmss
+(babel)               "[lmsans12-regular]:mapping=tex-text;" at 14.4pt
+(babel)             * \ttfamily = lmtt
+(babel)               "[lmmono12-regular]:" at 14.4pt
+(babel)             There is nothing intrinsically wrong with it, but
+(babel)             'babel' will no set Script and Language, which could
+(babel)             be relevant in some languages. If your document uses
+(babel)             these families, consider redefining them with \babelfont.
+(babel)             Reported on input line 182.
+
+LaTeX Info: Redefining \th on input line 182.
+
+Package fontspec Info: 
+(fontspec)             Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
+
+\symlegacymaths=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 182.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 182.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 182.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 182.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 182.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 182.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 182.
+LaTeX Font Info:    Redeclaring math accent \check on input line 182.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 182.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 182.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 182.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 182.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 182.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 182.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 182.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 182.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 182.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 182.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 182.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 182.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 182.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 182.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 182.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 182.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 182.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 182.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 182.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 182.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on input line 182.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line 182.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 182.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 182.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 182.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on input line 182.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input line 182.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 182.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 182.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+(d:/programs/texlive/2024/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2024/06/23 v1.3e Standard LaTeX Color (DPC)
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: xetex.def on input line 149.
+ (d:/programs/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+Package hyperref Info: Link coloring ON on input line 182.
+\@outlinefile=\write5
+\openout5 = `0_main.out'.
+
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+\symgns@font=\mathgroup5
+LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
+(Font)                  TS1/TimesNewRoman(0)/m/n --> TS1/TimesNewRoman(0)/b/n on input line 182.
+Package gensymb Info: Math companion symbols declared on input line 182.
+LaTeX Info: Redefining \degree on input line 182.
+LaTeX Info: Redefining \celsius on input line 182.
+Package gensymb Info: Using text companion symbols for \degree, \celsius and \perthousand on input line 182.
+LaTeX Info: Redefining \ohm on input line 182.
+Package gensymb Info: Using \textohm for \ohm on input line 182.
+Package gensymb Info: Using \textmu for \micro on input line 182.
+
+Package chemgreek Info: Activating mapping `fontspec' on line 182.
+
+(./1_title.tex
+LaTeX Font Info:    Trying to load font information for TS1+TimesNewRoman(0) on input line 32.
+LaTeX Font Info:    No file TS1TimesNewRoman(0).fd. on input line 32.
+
+
+LaTeX Font Warning: Font shape `TS1/TimesNewRoman(0)/m/n' undefined
+(Font)              using `TS1/cmr/m/n' instead on input line 32.
+
+)
+
+[1
+
+] (./1.1_abstract.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--5
+[]\TU/TimesNewRoman(0)/m/n/14.4 Научно-исследовательская работа посвящена поиску и анализу
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--5
+\TU/TimesNewRoman(0)/m/n/14.4 исследования были реализованы программные скрипты для поиска
+ []
+
+
+Underfull \hbox (badness 5637) in paragraph at lines 3--5
+\TU/TimesNewRoman(0)/m/n/14.4 подходы реконструкции направления прихода широкого атмосферного
+ []
+
+
+Underfull \hbox (badness 4859) in paragraph at lines 3--5
+\TU/TimesNewRoman(0)/m/n/14.4 ливня. Результаты работы представлены в виде распределений числа
+ []
+
+)
+
+[2]
+No file 0_main.toc.
+(./2_intro.tex
+
+[3]
+Underfull \hbox (badness 1728) in paragraph at lines 5--7
+\TU/TimesNewRoman(0)/m/n/14.4 космических лучей (ПКЛ) довольно мала, что делает затруднительным
+ []
+
+
+Underfull \hbox (badness 7238) in paragraph at lines 5--7
+\TU/TimesNewRoman(0)/m/n/14.4 детекторов, размещенных на космических аппаратах или аэростатах.
+ []
+
+
+Underfull \hbox (badness 4353) in paragraph at lines 5--7
+\TU/TimesNewRoman(0)/m/n/14.4 «Экспериментальный комплекс НЕВОД» (ЭК НЕВОД), расположенная
+ []
+
+
+LaTeX Warning: Citation 'bogdanov2010investigation' on page 4 undefined on input line 8.
+
+
+LaTeX Warning: Citation 'kokoulin2021muon' on page 4 undefined on input line 8.
+
+
+LaTeX Warning: Citation 'yurina2021measurements' on page 4 undefined on input line 8.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+\TU/TimesNewRoman(0)/m/n/14.4 групп мюонов, представляющих собой одновременное (в пределах
+ []
+
+
+Underfull \hbox (badness 6157) in paragraph at lines 8--9
+\TU/TimesNewRoman(0)/m/n/14.4 детектора ДЕКОР (проводится с 2002 г.) [[];
+ []
+
+
+Underfull \hbox (badness 4479) in paragraph at lines 8--9
+\TU/TimesNewRoman(0)/m/n/14.4 осуществить привязку событий с группами мюонов к традиционным
+ []
+
+) (./2_nevod_decor.tex
+
+[4
+
+]
+
+LaTeX Warning: Citation 'barbashina2000coordinate' on page 5 undefined on input line 5.
+
+
+Overfull \hbox (25.55635pt too wide) in paragraph at lines 5--6
+\TU/TimesNewRoman(0)/m/n/14.4 представляет собой крупномасштабную установку, специально предназначенную
+ []
+
+File: images/DECOR_1.jpg Graphic file (type bmp)
+<images/DECOR_1.jpg>
+File: images/DECOR_2.png Graphic file (type bmp)
+<images/DECOR_2.png>
+
+LaTeX Warning: Citation 'petrukhin2015cherenkov' on page 5 undefined on input line 28.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--31
+[]\TU/TimesNewRoman(0)/m/n/14.4 НЕВОД [[]] предназначен для изучения
+ []
+
+
+Underfull \hbox (badness 5260) in paragraph at lines 28--31
+\TU/TimesNewRoman(0)/m/n/14.4 всех основных компонент космических лучей на поверхности Земли
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--31
+\TU/TimesNewRoman(0)/m/n/14.4 и состоит из 91 квазисферического измерительного модуля (КСМ),
+ []
+
+
+Underfull \hbox (badness 2903) in paragraph at lines 28--31
+\TU/TimesNewRoman(0)/m/n/14.4 которые расположены в узлах пространственной решетки. Фактически
+ []
+
+
+Underfull \hbox (badness 1496) in paragraph at lines 28--31
+\TU/TimesNewRoman(0)/m/n/14.4 решетка сформирована из 25 вертикальных гирлянд по 3 или 4 КСМ.
+ []
+
+
+Underfull \hbox (badness 1776) in paragraph at lines 28--31
+\TU/TimesNewRoman(0)/m/n/14.4 Каждый КСМ состоит из 6 фотоумножителей с плоским фотокатодом,
+ []
+
+
+Underfull \hbox (badness 2726) in paragraph at lines 28--31
+\TU/TimesNewRoman(0)/m/n/14.4 ориентированных вдоль осей ортогональной системы координат. Такая
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--31
+\TU/TimesNewRoman(0)/m/n/14.4 конструкция обеспечивает практически одинаковую эффективность
+ []
+
+
+Underfull \hbox (badness 1924) in paragraph at lines 28--31
+\TU/TimesNewRoman(0)/m/n/14.4 фотоэлектронов) позволяет проводить калориметрические исследования,
+ []
+
+
+
+[5
+
+]) (./3_nevod_eas.tex
+
+[6]
+
+LaTeX Warning: Citation 'amelchakov2022nevod' on page 7 undefined on input line 5.
+
+
+Underfull \hbox (badness 1968) in paragraph at lines 5--6
+\TU/TimesNewRoman(0)/m/n/14.4 и на поверхности Земли (перепад высот достигает 20 м) на площади
+ []
+
+
+Underfull \hbox (badness 1983) in paragraph at lines 5--6
+\TU/TimesNewRoman(0)/m/n/14.4 НЕВОД-ШАЛ определяет кластерную организацию ее регистрирующей
+ []
+
+
+Underfull \hbox (badness 2846) in paragraph at lines 5--6
+\TU/TimesNewRoman(0)/m/n/14.4 системы. В состав установки НЕВОД-ШАЛ входит 9 кластеров по 4
+ []
+
+
+Underfull \hbox (badness 6691) in paragraph at lines 5--6
+\TU/TimesNewRoman(0)/m/n/14.4 детектирующих станции (ДС), расстояние между центрами соседних
+ []
+
+
+Underfull \hbox (badness 4108) in paragraph at lines 5--6
+\TU/TimesNewRoman(0)/m/n/14.4 сцинтилляционных счетчиков площадью $\OT1/cmr/m/n/14.4 0\OML/cmm/m/it/14.4 :\OT1/cmr/m/n/14.4 8 \OMS/cmsy/m/n/14.4 ^^B \OT1/cmr/m/n/14.4 0\OML/cmm/m/it/14.4 :\OT1/cmr/m/n/14.4 8$ \TU/TimesNewRoman(0)/m/n/14.4 м$[]$ и толщиной 4
+ []
+
+
+Underfull \hbox (badness 3668) in paragraph at lines 5--6
+\TU/TimesNewRoman(0)/m/n/14.4 см, просматриваемых ФЭУ. При этом три счетчика оснащены одним
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+[]\TU/TimesNewRoman(0)/m/n/14.4 Каждый кластер оснащен своим локальным пунктом, который
+ []
+
+
+Underfull \hbox (badness 7030) in paragraph at lines 7--8
+\TU/TimesNewRoman(0)/m/n/14.4 независимо осуществляет сбор и оцифровку аналоговых сигналов с
+ []
+
+
+Underfull \hbox (badness 7796) in paragraph at lines 7--8
+\TU/TimesNewRoman(0)/m/n/14.4 детектирующих элементов, отбор событий по триггерным условиям,
+ []
+
+
+Underfull \hbox (badness 3815) in paragraph at lines 7--8
+\TU/TimesNewRoman(0)/m/n/14.4 присваивание событиям временной метки и, таким образом, является
+ []
+
+
+Underfull \hbox (badness 2237) in paragraph at lines 7--8
+\TU/TimesNewRoman(0)/m/n/14.4 частиц, зарегистрированных каждым детектирующим элементом, так и
+ []
+
+File: images/невод-шал.png Graphic file (type bmp)
+<images/невод-шал.png>
+File: images/счетчик_шал.png Graphic file (type bmp)
+<images/счетчик_шал.png>
+File: images/ds.jpg Graphic file (type bmp)
+<images/ds.jpg>
+) (./4_SGVS.tex
+
+[7
+
+]
+
+[8]
+
+LaTeX Warning: Citation 'amelchakov2022nevod' on page 9 undefined on input line 5.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+[]\TU/TimesNewRoman(0)/m/n/14.4 Для обеспечения синхронной работы кластеров установки,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+\TU/TimesNewRoman(0)/m/n/14.4 а также привязки регистрируемых событий к мировому времени
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+\TU/TimesNewRoman(0)/m/n/14.4 используется система глобальной временной синхронизации (СГВС)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+\TU/TimesNewRoman(0)/m/n/14.4 [[]]. В состав СГВС входят: модуль глобальной
+ []
+
+
+Underfull \hbox (badness 3260) in paragraph at lines 10--11
+[]\TU/TimesNewRoman(0)/m/n/14.4 раздача временных меток в синхронизируемые устройства для
+ []
+
+
+Underfull \hbox (badness 1939) in paragraph at lines 12--13
+[]\TU/TimesNewRoman(0)/m/n/14.4 синхронизация локальных часов реального времени с внешним
+ []
+
+
+Overfull \hbox (5.1735pt too wide) in paragraph at lines 13--14
+[]\TU/TimesNewRoman(0)/m/n/14.4 передача по сети Ethernet времени локальных часов и GPS-приемника. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+[]\TU/TimesNewRoman(0)/m/n/14.4 Точность синхронизации локальных часов кластеров установки
+ []
+
+) (./5_muon_groups.tex
+
+[9
+
+]
+Underfull \hbox (badness 1895) in paragraph at lines 4--5
+\TU/TimesNewRoman(0)/m/n/14.4 ДЕКОР проводится для множественностей мюонов в группе $\OML/cmm/m/it/14.4 m \OMS/cmsy/m/n/14.4 ^^U \OT1/cmr/m/n/14.4 5$
+ []
+
+
+Underfull \hbox (badness 4940) in paragraph at lines 4--5
+\TU/TimesNewRoman(0)/m/n/14.4 и зенитных углов $\OML/cmm/m/it/14.4 ^^R \OMS/cmsy/m/n/14.4 ^^U \OT1/cmr/m/n/14.4 55\TS1/cmr/m/n/14.4 °$\TU/TimesNewRoman(0)/m/n/14.4 , чтобы исключить возможное влияние
+ []
+
+
+Underfull \hbox (badness 4378) in paragraph at lines 4--5
+\TU/TimesNewRoman(0)/m/n/14.4 электронно-фотонной и адронной компонент ШАЛ на реконструкцию
+ []
+
+
+Underfull \hbox (badness 6412) in paragraph at lines 4--5
+\TU/TimesNewRoman(0)/m/n/14.4 треков. Однако из части экспериментального материала в интервале
+ []
+
+
+Underfull \hbox (badness 2961) in paragraph at lines 4--5
+\TU/TimesNewRoman(0)/m/n/14.4 НЕВОД-ШАЛ в принципе еще должна быть способна регистрировать
+ []
+
+
+Underfull \hbox (badness 1661) in paragraph at lines 6--7
+\TU/TimesNewRoman(0)/m/n/14.4 г.) и 810-841 (с 13.12.18 по 03.02.19 г.). На рис. 3 изображен пример
+ []
+
+
+
+[10
+
+]
+File: images/73818_1_bw.png Graphic file (type bmp)
+<images/73818_1_bw.png>
+File: images/73818.png Graphic file (type bmp)
+<images/73818.png>
+
+
+[11]
+./5_muon_groups.tex:31: Undefined control sequence.
+l.31     \lefting
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+File: images/theta_phi.png Graphic file (type bmp)
+<images/theta_phi.png>
+) (./6_events.tex
+
+[12]
+File: images/events_by_delta_time.png Graphic file (type bmp)
+<images/events_by_delta_time.png>
+
+Underfull \hbox (badness 6526) in paragraph at lines 18--19
+\TU/TimesNewRoman(0)/m/n/14.4 Распределение числа событий групп мюнов по номеру RUN и его
+ []
+
+File: images/muon_group_by_run.png Graphic file (type bmp)
+<images/muon_group_by_run.png>
+File: images/19.12.18.png Graphic file (type bmp)
+<images/19.12.18.png>
+File: images/20.12.18.png Graphic file (type bmp)
+<images/20.12.18.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 1661) in paragraph at lines 43--44
+[]\TU/TimesNewRoman(0)/m/n/14.4 Можно отметить, что примерно для 20% событий групп мюонов
+ []
+
+
+Underfull \hbox (badness 4531) in paragraph at lines 45--47
+\TU/TimesNewRoman(0)/m/n/14.4 разбиваются на временные отрезки длительностью 10 минут, в ходе
+ []
+
+
+
+[13
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+[]\TU/TimesNewRoman(0)/m/n/14.4 Учитывая выше описанные особенности работы установки
+ []
+
+
+Underfull \hbox (badness 3579) in paragraph at lines 48--49
+\TU/TimesNewRoman(0)/m/n/14.4 прихода событий для групп мюонов с отсутствующими совместными
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
+[]\TU/TimesNewRoman(0)/m/n/14.4 Из-за меньшей проникающей способности электронно-фотонной
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
+\TU/TimesNewRoman(0)/m/n/14.4 компоненты, часть отсутствующих совместных событий установки
+ []
+
+
+
+[14]
+File: images/not_events_by_theta.png Graphic file (type bmp)
+<images/not_events_by_theta.png>
+File: images/logQ_theta55.png Graphic file (type bmp)
+<images/logQ_theta55.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: images/SKT.png Graphic file (type bmp)
+<images/SKT.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[15]) (./7_direction.tex
+Underfull \hbox (badness 3260) in paragraph at lines 72--1
+\TU/TimesNewRoman(0)/m/n/14.4 числа событий (слева) и плотности вероятности событий (справа) по
+ []
+
+
+Underfull \hbox (badness 1418) in paragraph at lines 72--1
+\TU/TimesNewRoman(0)/m/n/14.4 десятичному логарифма суммарного сигнала фотоумножителей событий
+ []
+
+
+Underfull \hbox (badness 6001) in paragraph at lines 72--1
+\TU/TimesNewRoman(0)/m/n/14.4 с группами мюонов на ЧВД НЕВОД. На рисунке 10 представлены
+ []
+
+
+
+[16]
+
+LaTeX Warning: Citation 'shulzhenko2019' on page 17 undefined on input line 10.
+
+
+Overfull \hbox (7.62782pt too wide) in paragraph at lines 10--11
+\TU/TimesNewRoman(0)/m/n/14.4 можно определить по относительным временам срабатывания детектирующих
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+\TU/TimesNewRoman(0)/m/n/14.4 станций установки НЕВОД-ШАЛ, полагая фронт ШАЛ плоскостью,
+ []
+
+
+Underfull \hbox (badness 1478) in paragraph at lines 19--22
+\TU/TimesNewRoman(0)/m/n/14.4 ливня как единичный нормальный вектор, то коэффициенты плоскости
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--26
+\TU/TimesNewRoman(0)/m/n/14.4 Тогда для поиска коэффициентов плоскости нужно найти минимум
+ []
+
+
+Underfull \hbox (badness 3568) in paragraph at lines 31--32
+[]\TU/TimesNewRoman(0)/m/n/14.4 Для установки НЕВОД-ШАЛ направление прихода ШАЛ можно
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+\TU/TimesNewRoman(0)/m/n/14.4 определять кластерный методом - усреднение направление прихода
+ []
+
+
+Underfull \hbox (badness 4291) in paragraph at lines 31--32
+\TU/TimesNewRoman(0)/m/n/14.4 от момента срабатывания первой детектирующей станции кластера в
+ []
+
+
+Underfull \hbox (badness 7012) in paragraph at lines 31--32
+\TU/TimesNewRoman(0)/m/n/14.4 ШАЛ определяются например как средние или медианное значения
+ []
+
+
+
+[17
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+[]\TU/TimesNewRoman(0)/m/n/14.4 Зная, что детектирующие станции одного кластера установки
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+\TU/TimesNewRoman(0)/m/n/14.4 НЕВОД-ШАЛ располагаются примерно на одном уровне, можно
+ []
+
+
+Underfull \hbox (badness 7944) in paragraph at lines 36--39
+\TU/TimesNewRoman(0)/m/n/14.4 а значение коэффициента С определяется из условия нормальности
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--45
+\TU/TimesNewRoman(0)/m/n/14.4 ШАЛ совместных событий на установках ДЕКОР и НЕВОД-ШАЛ.
+ []
+
+
+Underfull \hbox (badness 2653) in paragraph at lines 43--45
+\TU/TimesNewRoman(0)/m/n/14.4 как медианное направлений на сработавшие кластеры. На рисунке 11
+ []
+
+
+Underfull \hbox (badness 4341) in paragraph at lines 43--45
+\TU/TimesNewRoman(0)/m/n/14.4 представлено распределение $\OT1/cmr/m/n/14.4 ^^A\OML/cmm/m/it/14.4 ^^R \OT1/cmr/m/n/14.4 = \OML/cmm/m/it/14.4 ^^R[] \OMS/cmsy/m/n/14.4 ^^@ \OML/cmm/m/it/14.4 ^^R[]$ \TU/TimesNewRoman(0)/m/n/14.4 (а) и распределение
+ []
+
+File: images/theta_hist.png Graphic file (type bmp)
+<images/theta_hist.png>
+File: images/phi_hist.png Graphic file (type bmp)
+<images/phi_hist.png>
+
+Overfull \hbox (3.45197pt too wide) in paragraph at lines 54--59
+ [][][] 
+ []
+
+File: images/vecs_angel.png Graphic file (type bmp)
+<images/vecs_angel.png>
+
+Underfull \hbox (badness 5189) in paragraph at lines 77--78
+[]\TU/TimesNewRoman(0)/m/n/14.4 Из распределения видно, что определение направления прихода
+ []
+
+
+
+[18]
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 87--89
+[]\TU/TimesNewRoman(0)/m/n/14.4 Признаком $\OML/cmm/m/it/14.4 f$ \TU/TimesNewRoman(0)/m/n/14.4 объекта $\OML/cmm/m/it/14.4 x$ \TU/TimesNewRoman(0)/m/n/14.4 будет результат измерения некоторой
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
+[]\TU/TimesNewRoman(0)/m/n/14.4 В задаче реконструкции направления прихода ШАЛ в роли
+ []
+
+
+Underfull \hbox (badness 3907) in paragraph at lines 90--91
+\TU/TimesNewRoman(0)/m/n/14.4 характеризовать координаты ДС, времена срабатываний ДС, задержки
+ []
+
+
+Underfull \hbox (badness 1668) in paragraph at lines 90--91
+\TU/TimesNewRoman(0)/m/n/14.4 срабатывания ДС, положения мюонных пиков ДС, темпы счета ДС за
+ []
+
+
+Underfull \hbox (badness 6758) in paragraph at lines 92--93
+[]\TU/TimesNewRoman(0)/m/n/14.4 Данные могут быть неточными, поскольку измерения значений
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+\TU/TimesNewRoman(0)/m/n/14.4 признаков $\OML/cmm/m/it/14.4 f[]\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 x\OT1/cmr/m/n/14.4 )$ \TU/TimesNewRoman(0)/m/n/14.4 и целевой зависимости $[]$ обычно выполняются с
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--97
+[]\TU/TimesNewRoman(0)/m/n/14.4 Вместо существования неизвестной целевой зависимости $[]$
+ []
+
+
+
+[20
+
+]
+Underfull \hbox (badness 1708) in paragraph at lines 100--101
+\TU/TimesNewRoman(0)/m/n/14.4 неизвестную плотность $\OML/cmm/m/it/14.4 p\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 x; y\OT1/cmr/m/n/14.4 )$\TU/TimesNewRoman(0)/m/n/14.4 . Затем определяется значение параметра
+ []
+
+
+Underfull \hbox (badness 2229) in paragraph at lines 103--105
+\TU/TimesNewRoman(0)/m/n/14.4 Чем выше значение правдоподобия, тем лучше выборка согласуется с
+ []
+
+
+Underfull \hbox (badness 6944) in paragraph at lines 110--114
+\TU/TimesNewRoman(0)/m/n/14.4 Пусть задана модель $\OML/cmm/m/it/14.4 a\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 x; w\OT1/cmr/m/n/14.4 )$\TU/TimesNewRoman(0)/m/n/14.4 , примем дополнительное вероятностное
+ []
+
+
+Underfull \hbox (badness 6348) in paragraph at lines 110--114
+\TU/TimesNewRoman(0)/m/n/14.4 распределение $\OML/cmm/m/it/14.4 N\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 "; \OT1/cmr/m/n/14.4 0\OML/cmm/m/it/14.4 ; ^^[[]\OT1/cmr/m/n/14.4 ) = [] [](\OMS/cmsy/m/n/14.4 ^^@[]\OT1/cmr/m/n/14.4 )$ \TU/TimesNewRoman(0)/m/n/14.4 с нулевым средним и
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--118
+\TU/TimesNewRoman(0)/m/n/14.4 Отсюда следует, что вероятностная функция потерь совпадает с
+ []
+
+
+Underfull \hbox (badness 7796) in paragraph at lines 120--122
+\TU/TimesNewRoman(0)/m/n/14.4 Постоянными слагаемыми можно пренебречь тогда оказывается, что
+ []
+
+
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 124--126
+\TU/TimesNewRoman(0)/m/n/14.4 получилась неотрицательная функция, характеризующая величину
+ []
+
+
+LaTeX Warning: Citation 'lecun1988theoretical' on page 22 undefined on input line 127.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
+\TU/TimesNewRoman(0)/m/n/14.4 нейронная сеть - сложную дифференцируемуя функцию, задающая
+ []
+
+
+Underfull \hbox (badness 4391) in paragraph at lines 127--128
+\TU/TimesNewRoman(0)/m/n/14.4 отображение из исходного признакового пространства в пространство
+ []
+
+
+Underfull \hbox (badness 3579) in paragraph at lines 127--128
+\TU/TimesNewRoman(0)/m/n/14.4 ответов, все параметры которой могут настраиваться одновременно и
+ []
+
+
+Underfull \hbox (badness 2564) in paragraph at lines 127--128
+\TU/TimesNewRoman(0)/m/n/14.4 взаимосвязанно. Многослойные сети можно настраивать градиентными
+ []
+
+
+Underfull \hbox (badness 4156) in paragraph at lines 127--128
+\TU/TimesNewRoman(0)/m/n/14.4 методами, несмотря на огромное количество весовых коэффициентов.
+ []
+
+
+Underfull \hbox (badness 7759) in paragraph at lines 127--128
+\TU/TimesNewRoman(0)/m/n/14.4 Хотя количество операций, необходимых для вычисления градиента,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
+\TU/TimesNewRoman(0)/m/n/14.4 коэффициентов, этого удаётся избежать благодаря аналитическому
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
+\TU/TimesNewRoman(0)/m/n/14.4 дифференцированию суперпозиции с сохранением необходимых
+ []
+
+
+Underfull \hbox (badness 3701) in paragraph at lines 127--128
+\TU/TimesNewRoman(0)/m/n/14.4 промежуточных величин - методу обратного распространения ошибок
+ []
+
+File: images/nn.png Graphic file (type bmp)
+<images/nn.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--137
+[]\TU/TimesNewRoman(0)/m/n/14.4 Рассмотрю многослойную сеть, в который каждый нейрон
+ []
+
+
+
+[22]
+File: images/nn1.png Graphic file (type bmp)
+<images/nn1.png>
+
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 173--176
+[]\TU/TimesNewRoman(0)/m/n/14.4 Для проверки работы модели были рассчитаны относительные
+ []
+
+File: images/test_theta_vs_phi_diff.png Graphic file (type bmp)
+<images/test_theta_vs_phi_diff.png>
+File: images/theta_3_1.png Graphic file (type bmp)
+<images/theta_3_1.png>
+
+Underfull \hbox (badness 4872) in paragraph at lines 189--196
+\TU/TimesNewRoman(0)/m/n/14.4 системных и статистических факторов на результаты измерений был
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--196
+\TU/TimesNewRoman(0)/m/n/14.4 добавлен шум, соответствующий значениям распределения разницы
+ []
+
+
+Underfull \hbox (badness 2418) in paragraph at lines 189--196
+\TU/TimesNewRoman(0)/m/n/14.4 времени откликов, вычисленных по направлению прихода совместного
+ []
+
+
+Underfull \hbox (badness 4132) in paragraph at lines 189--196
+\TU/TimesNewRoman(0)/m/n/14.4 установки НЕВОД-ШАЛ для того же события. На рисунке 15 и 16
+ []
+
+
+Underfull \hbox (badness 3942) in paragraph at lines 189--196
+\TU/TimesNewRoman(0)/m/n/14.4 представлены значения зенитного угла $\OML/cmm/m/it/14.4 ^^R$ \TU/TimesNewRoman(0)/m/n/14.4 и $\OML/cmm/m/it/14.4 ^^^$ \TU/TimesNewRoman(0)/m/n/14.4 найденных совместных
+ []
+
+
+Underfull \hbox (badness 1642) in paragraph at lines 189--196
+\TU/TimesNewRoman(0)/m/n/14.4 событий, определенные по данным установки ДЕКОР, НЕВОД-ШАЛ и
+ []
+
+
+
+[24]
+File: images/phi_3_1.png Graphic file (type bmp)
+<images/phi_3_1.png>
+
+
+[25]
+
+[26]) (./8_conclusion.tex
+Underfull \hbox (badness 2970) in paragraph at lines 211--1
+\TU/TimesNewRoman(0)/m/n/14.4 совместного события на установке ДЕКОР. В теоретическом плане, с
+ []
+
+
+
+[27
+
+]
+Underfull \hbox (badness 6428) in paragraph at lines 8--9
+[]\TU/TimesNewRoman(0)/m/n/14.4 рассмотрение откликов установки ЧВД НЕВОД и детекторов
+ []
+
+
+Underfull \hbox (badness 3746) in paragraph at lines 8--9
+\TU/TimesNewRoman(0)/m/n/14.4 СКТ с не найденными совместными событиями на установке
+ []
+
+
+Underfull \hbox (badness 2809) in paragraph at lines 9--10
+[]\TU/TimesNewRoman(0)/m/n/14.4 разработан, обучен и протестирован искусственный нейронный
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+\TU/TimesNewRoman(0)/m/n/14.4 сетевой алгоритм для реконструкции направлений прихода
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+[]\TU/TimesNewRoman(0)/m/n/14.4 Восстановление направлений прихода совместных событий
+ []
+
+
+Underfull \hbox (badness 5245) in paragraph at lines 10--11
+\TU/TimesNewRoman(0)/m/n/14.4 на установке НЕВО-ШАЛ с квадратичным корнем из средне
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+\TU/TimesNewRoman(0)/m/n/14.4 найденных совместных событий ШАЛ. Построены сравнительные
+ []
+
+
+Underfull \hbox (badness 2111) in paragraph at lines 13--14
+\TU/TimesNewRoman(0)/m/n/14.4 распределения зенитного и азимутального углов направлениях прихода
+ []
+
+)
+
+LaTeX Warning: Empty bibliography on input line 201.
+
+
+Package caption Warning: Unused \captionsetup[table] on input line 109.
+See the caption package documentation for explanation.
+
+
+
+[28
+
+]
+\tf@toc=\write6
+\openout6 = `0_main.toc'.
+
+ (./0_main.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 1
+L3 programming layer <2020/03/25>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `0_main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `0_main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  6AE6FBA49656BD6F60FDEDA48A2FE0E7;3036.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                0_main
+(biblatex)                and rerun LaTeX afterwards.
+
+Package logreq Info: Writing requests to '0_main.run.xml'.
+\openout1 = `0_main.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 29410 strings out of 473964
+ 568974 string characters out of 5732516
+ 1695491 words of memory out of 5000000
+ 51940 multiletter control sequences out of 15000+600000
+ 565769 words of font info for 89 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 85i,12n,99p,1265b,5174s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on 0_main.pdf (28 pages).

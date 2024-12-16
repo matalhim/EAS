@@ -1,0 +1,11 @@
+\babel@toc {russian}{}\relax 
+\contentsline {chapter}{Введение}{4}{chapter*.4}%
+\contentsline {chapter}{Установка НЕВОД-ДЕКОР}{5}{chapter*.5}%
+\contentsline {chapter}{Установка НЕВОД-ШАЛ}{7}{chapter*.7}%
+\contentsline {chapter}{Система глобальной временной синхронизации (СГВС)}{9}{chapter*.9}%
+\contentsline {chapter}{События с группами мюонов в детекторе ДЕКОР}{10}{chapter*.10}%
+\contentsline {chapter}{Совместные события на установках ДЕКОР и НЕВОД-ШАЛ}{13}{chapter*.13}%
+\contentsline {chapter}{Направление прихода ШАЛ}{17}{chapter*.20}%
+\contentsline {section}{Кластерный метод реконструкции направления прихода ШАЛ}{17}{section*.21}%
+\contentsline {section}{Вероятностная постановка задачи реконструкции}{20}{section*.24}%
+\contentsline {chapter}{Заключение}{28}{chapter*.29}%
